@@ -179,11 +179,6 @@ Serial.println("Hello World!");
 
 <span style="background: rgb(61, 170, 214);"><span style="color: rgb(255, 255, 255);">在线课程视频：</span></span>
 
-<span style="background: rgb(61, 170, 214);">在线课程视频：</span>
-
-<span style="color: rgb(255, 255, 255);">在线课程视频：</span>
-
-
 [https://www.bilibili.com/video/BV1Mx4y1p7xR](https://www.bilibili.com/video/BV1Mx4y1p7xR)
 
 ## 实验一 LED 闪烁实验
