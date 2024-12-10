@@ -6,9 +6,6 @@
 这个套件包含我们学习Arduino
 单片机常用到的传感器模块、元器件和Arduino控制板。同时我们还会根据这些元器件和传感器模块，提供一些基Arduino控制板的学习课程，课程包含了接线方法、测试代码、实验结果等信息，它让你对这些元器件、传感器模块和Arduino控制板有个初步的了解。
 
-在线视频：
-[https://www.bilibili.com/video/BV1Mx4y1p7xR/](https://www.bilibili.com/video/BV1Mx4y1p7xR/)
-
 # 清单
 
 |编码|名称|描述|数量|图片|
@@ -65,6 +62,10 @@
 
 
 # Arduino IDE和驱动的安装
+
+在线视频：
+[https://www.bilibili.com/video/BV1Mx4y1p7xR](https://www.bilibili.com/video/BV1Mx4y1p7xR)
+
 
 当我们拿到开发板时，首先我们要安装Arduino IDE和驱动，相关文件我们可以在官网上找到，以下链接是包含各种系统、各种版本的Arduino IDE和驱动任你选择。
 
