@@ -10,33 +10,33 @@
 
 |编码|名称|描述|数量|图片|
 |-|-|-|-|-|
-| 1 | LED | F5-白发红-短 | 5 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 2 | LED | F5-白发黄-短 | 5 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 3 | LED | F5-白发蓝-短 | 5 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
+| 1 | LED | F5-白发红-短 | 5 |  ![](media/F5-baifahong-duan.jpeg)  |
+| 2 | LED | F5-白发黄-短 | 5 |  ![](media/F5-baifahuang-duan.jpeg)  |
+| 3 | LED | F5-白发蓝-短 | 5 |  ![](media/F5-baifalan-duan.jpeg)  |
 | 4 | 电阻 | 碳膜色环 1/4W 1% 220R 编带 | 8 |  ![](media/4cda5da2c77a5e8f9ee14e21ce171b18.png)  |
 | 5 | 电阻 | 碳膜色环 1/4W 1% 1K 编带 | 5 |  ![](media/e595e9dbbd22e6f72867ed8853f21600.png)  |
 | 6 | 电阻 | 碳膜色环 1/4W 1% 10K 编带 | 5 |  ![](media/af39238525c3e329c1f7d6f1937c2676.png)  |
-| 7 | 点阵 | 20*20MM 1.9MM红色 共阳 | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 8 | 数码管 | 一位0.56英寸共阴红 | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 9 | 数码管 | 四位0.36英寸共阴红 3461AH | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 10 | IC | 74HC595 DIP | 1 |  ![](media/615f42b0ddf31f4952aa6cb8fbfbb6e1.jpeg)  |
-| 11 | 可调电位器 |  MU 103 （三针直排）  | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 12 | 蜂鸣器 | 无源 12*8.5MM 5V 普通分体 2K | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 13 | 蜂鸣器 | 有源 12*9.5MM 5V 普通分体 2300Hz | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 14 | 轻触按键 | 12*12*7.3MM 插件 | 4 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)   ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 15 | 按键帽 | A24 黄帽(12*12*7.3)圆 | 4 |
-| 16 | 传感器元件 | LM35DZ | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 17 | 传感器元件 | 5MM 光敏电阻 | 3 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 18 | 传感器元件 | 红外接收 5MM 火焰 | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 19 | 传感器元件 | 红外接收 VS1838B | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
-| 20 | 滚珠开关 | HDX-2801 两脚一样 | 2 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
+| 7 | 点阵 | 20*20MM 1.9MM红色 共阳 | 1 |  ![](media/20x20_dianzheng.jpeg)  |
+| 8 | 数码管 | 一位0.56英寸共阴红 | 1 |  ![](media/shumaguan_1wei.jpeg)  |
+| 9 | 数码管 | 四位0.36英寸共阴红 3461AH | 1 |  ![](media/shumaguan_4wei.jpeg)  |
+| 10 | IC | 74HC595 DIP | 1 |  ![](media/74HC595DIP.jpeg)  |
+| 11 | 可调电位器 |  MU 103 （三针直排）  | 1 |  ![](media/dianweiqi.jpeg)  |
+| 12 | 蜂鸣器 | 无源 12*8.5MM 5V 普通分体 2K | 1 |  ![](media/wuyuanfengmingqi.jpeg)  |
+| 13 | 蜂鸣器 | 有源 12*9.5MM 5V 普通分体 2300Hz | 1 |  ![](media/youyuanfengmingqi.jpeg)  |
+| 14 | 轻触按键 | 12*12*7.3MM 插件 | 4 |  ![](media/anjian.jpeg)  |
+| 15 | 按键帽 | A24 黄帽(12*12*7.3)圆 | 4 |  ![](media/anjian.jpeg)  |
+| 16 | 传感器元件 | LM35DZ | 1 |  ![](media/LM35DZ.jpeg)  |
+| 17 | 传感器元件 | 5MM 光敏电阻 | 3 |  ![](media/guangmindianzu.jpeg)  |
+| 18 | 传感器元件 | 红外接收 5MM 火焰 | 1 |  ![](media/huoyanyuanjian.jpeg)  |
+| 19 | 传感器元件 | 红外接收 VS1838B | 1 |  ![](media/VS1838B.jpeg)  |
+| 20 | 滚珠开关 | HDX-2801 两脚一样 | 2 |  ![](media/gunzhukaiguan.jpeg)  |
 | 21 | 模块 | 1602 I2C 蓝屏 | 1 |  ![](media/764f1fb883c77172050256859435eb8b.png)  |
 | 22 | 模块 | 4*4薄膜键盘 | 1 |  ![](media/bde8036ed84831618bcad13e667d194e.jpeg)  |
 | 23 | 面包板 | ZY-102 830孔 白色 （纸卡包装） | 1 |  ![](media/014fcb7b8de94392fe7e676522bc663a.jpeg)  |
 | 24 | 模块 | 5V步进电机 | 1 |  ![](media/2dd9273390c373014af1ba3c53dc6ab8.jpeg)  |
 | 25 | USB线 | AM/BM 透明蓝 OD:5.0 L=50cm | 1 |  ![](media/54e386d79233c9560233ac225eada56b.png)  |
 | 26 | 遥控器 | JMP-1 17键86*40*6.5MM 黑色 | 1 |  ![](media/c6a4a156298845be8ba0e1f99b01a3c0.jpeg)  |
-| 27 | 面包线 | 面包板连接线65根 | 1 |  ![](media/452cc0d7d913ced1840bcba1baa5f913.jpeg)  |
+| 27 | 面包线 | 面包板连接线65根 | 1 |  ![](media/mianbaoxian65.jpeg)  |
 | 28 | 杜邦线 | 公对母20CM/40P/2.54/10股铜包铝 24号线BL | 0.5 |  ![](media/eb8b3c665dbdae05c80ebac77f9f363c.jpeg)  |
 | 29 | 舵机 | SG90 9G 23*12.2*29mm 蓝色 辉盛(环保） | 1 |  ![](media/92c0c7ace837104963517c3ec5db750d.jpeg)  |
 | 30 | 电池扣 | 优质型 9V电池扣 实验电源连接线 | 1 |  ![](media/da4fd3d4d648c07705dec1dbfb66bcaa.jpeg)  |
