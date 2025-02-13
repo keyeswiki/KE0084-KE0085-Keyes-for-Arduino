@@ -53,9 +53,9 @@
 | 41 | keyes驱动板 | Keyes ULN2003步进电机驱动板（焊盘孔） 红色 环保 | 1 |  ![](media/875fa2102e406d90430651a4255ba6da.jpeg)  |
 | 42 | keyes传感器 | keyes MQ-2 烟雾传感器(焊盘孔) 红色 环保 | 1 |  ![](media/c3d916418ccd91ad9457b4173af0187a.jpeg)  |
 | 43 | keyes传感器 | keyes 摇杆模块传感器(焊盘孔) 红色 环保 | 1 |  ![](media/30d2a9088cb61ea6cd53f73fe295d8b5.jpeg)  |
-| 44 | 传感器模块 | keyes TMD27713 距离传感器 | 1 |  ![](media/51a73fb1094e0c141a3a7c710d969129.jpeg)  |
+| 44 | 传感器模块 | keyes TMD27713 距离传感器 | 1 |  ![](media/51a73fb1094e0c141a3a7c710d969129.jpg)  |
 | 45 | 传感器模块 | keyes MMA8452Q 三轴数字加速度传感器 | 1 |  ![](media/24814d92aa9aa7d14e53749a80845461.jpeg)  |
-| 46 | 传感器模块 | keyes GUVA-S12SD 3528 太阳光紫外线传感器 | 1 |  ![](media/363a4a8c176a88557765f9c71f2e80ef.jpeg)  |
+| 46 | 传感器模块 | keyes GUVA-S12SD 3528 太阳光紫外线传感器 | 1 |  ![](media/363a4a8c176a88557765f9c71f2e80ef.jpg)  |
 | 47 | 电阻卡 | 100*70MM | 1 |  ![](media/87a997f40fe09d5f3bb64b538b9c4562.jpeg)  |
 | 48 | 开发板 | Keyes UNO R3 开发板 for arduino 红色 环保 | 1 |  ![](media/6b4abbba47e653c4c9f32dd592c4169b.jpeg)  |
 | 48 | 开发板 | Keyes 2560 R3 开发板 for arduino 红色 环保 | 1 |  ![](media/4456a83cad7d95811ac569b394aab248.jpeg)  |
