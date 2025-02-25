@@ -1,65 +1,4 @@
-# Keyes 终极版 学习套件 for Arduino
-
-
-# 说明
-
-这个套件包含我们学习Arduino
-单片机常用到的传感器模块、元器件和Arduino控制板。同时我们还会根据这些元器件和传感器模块，提供一些基Arduino控制板的学习课程，课程包含了接线方法、测试代码、实验结果等信息，它让你对这些元器件、传感器模块和Arduino控制板有个初步的了解。
-
-# 清单
-
-|编码|名称|描述|数量|图片|
-|-|-|-|-|-|
-| 1 | LED | F5-白发红-短 | 5 |  ![](media/F5-baifahong-duan.jpeg)  |
-| 2 | LED | F5-白发黄-短 | 5 |  ![](media/F5-baifahuang-duan.jpeg)  |
-| 3 | LED | F5-白发蓝-短 | 5 |  ![](media/F5-baifalan-duan.jpeg)  |
-| 4 | 电阻 | 碳膜色环 1/4W 1% 220R 编带 | 8 |  ![](media/4cda5da2c77a5e8f9ee14e21ce171b18.png)  |
-| 5 | 电阻 | 碳膜色环 1/4W 1% 1K 编带 | 5 |  ![](media/e595e9dbbd22e6f72867ed8853f21600.png)  |
-| 6 | 电阻 | 碳膜色环 1/4W 1% 10K 编带 | 5 |  ![](media/af39238525c3e329c1f7d6f1937c2676.png)  |
-| 7 | 点阵 | 20*20MM 1.9MM红色 共阳 | 1 |  ![](media/20x20_dianzheng.jpeg)  |
-| 8 | 数码管 | 一位0.56英寸共阴红 | 1 |  ![](media/shumaguan_1wei.jpeg)  |
-| 9 | 数码管 | 四位0.36英寸共阴红 3461AH | 1 |  ![](media/shumaguan_4wei.jpeg)  |
-| 10 | IC | 74HC595 DIP | 1 |  ![](media/74HC595DIP.jpeg)  |
-| 11 | 可调电位器 |  MU 103 （三针直排）  | 1 |  ![](media/dianweiqi.jpeg)  |
-| 12 | 蜂鸣器 | 无源 12*8.5MM 5V 普通分体 2K | 1 |  ![](media/wuyuanfengmingqi.jpeg)  |
-| 13 | 蜂鸣器 | 有源 12*9.5MM 5V 普通分体 2300Hz | 1 |  ![](media/youyuanfengmingqi.jpeg)  |
-| 14 | 轻触按键 | 12*12*7.3MM 插件 | 4 |  ![](media/anjian.jpeg)  |
-| 15 | 按键帽 | A24 黄帽(12*12*7.3)圆 | 4 |  ![](media/anjian.jpeg)  |
-| 16 | 传感器元件 | LM35DZ | 1 |  ![](media/LM35DZ.jpeg)  |
-| 17 | 传感器元件 | 5MM 光敏电阻 | 3 |  ![](media/guangmindianzu.jpeg)  |
-| 18 | 传感器元件 | 红外接收 5MM 火焰 | 1 |  ![](media/huoyanyuanjian.jpeg)  |
-| 19 | 传感器元件 | 红外接收 VS1838B | 1 |  ![](media/VS1838B.jpeg)  |
-| 20 | 滚珠开关 | HDX-2801 两脚一样 | 2 |  ![](media/gunzhukaiguan.jpeg)  |
-| 21 | 模块 | 1602 I2C 蓝屏 | 1 |  ![](media/764f1fb883c77172050256859435eb8b.png)  |
-| 22 | 模块 | 4*4薄膜键盘 | 1 |  ![](media/bde8036ed84831618bcad13e667d194e.jpeg)  |
-| 23 | 面包板 | ZY-102 830孔 白色 （纸卡包装） | 1 |  ![](media/014fcb7b8de94392fe7e676522bc663a.jpeg)  |
-| 24 | 模块 | 5V步进电机 | 1 |  ![](media/2dd9273390c373014af1ba3c53dc6ab8.jpeg)  |
-| 25 | USB线 | AM/BM 透明蓝 OD:5.0 L=50cm | 1 |  ![](media/54e386d79233c9560233ac225eada56b.png)  |
-| 26 | 遥控器 | JMP-1 17键86*40*6.5MM 黑色 | 1 |  ![](media/c6a4a156298845be8ba0e1f99b01a3c0.jpeg)  |
-| 27 | 面包线 | 面包板连接线65根 | 1 |  ![](media/mianbaoxian65.jpeg)  |
-| 28 | 杜邦线 | 公对母20CM/40P/2.54/10股铜包铝 24号线BL | 0.5 |  ![](media/eb8b3c665dbdae05c80ebac77f9f363c.jpeg)  |
-| 29 | 舵机 | SG90 9G 23*12.2*29mm 蓝色 辉盛(环保） | 1 |  ![](media/92c0c7ace837104963517c3ec5db750d.jpeg)  |
-| 30 | 电池扣 | 优质型 9V电池扣 实验电源连接线 | 1 |  ![](media/da4fd3d4d648c07705dec1dbfb66bcaa.jpeg)  |
-| 31 | IC卡 | 白卡 85.5*54*0.80MM | 1 |  ![](media/49c056d80168ddcdb730dc12c232fc55.jpeg)  |
-| 32 | 钥匙扣 | TAG-03 41*33*403mm ABS蓝色 | 1 |  ![](media/13c7cbac439470bcc6ab22ce1410ce24.jpeg)  |
-| 33 | keyes模块 | Keyes RFID－RC522 射频模块 （焊盘孔） 红色 环保 | 1 |  ![](media/2eb75448fd3850cfb39a695429d2431f.jpeg)  |
-| 34 | keyes传感器 | keyes 麦克风声音传感器(焊盘孔) 红色 环保 | 1 |  ![](media/0f091b0fc0eddc44dc0168b60d985b1b.jpeg)  |
-| 35 | keyes传感器 | keyes 超声波传感器 | 1 |  ![](media/9fc0922e2784373238dc169388be6d5b.jpeg)  |
-| 36 | keyes模块 | keyes 插件RGB模块(焊盘孔) 红色 环保 | 1 |  ![](media/5974416b9ece25307371064c01e0e98f.jpeg)  |
-| 37 | keyes模块 | keyes 5V 单路继电器模块(焊盘孔) 红色 环保 | 1 |  ![](media/02a8ea8b0463075a1140a89624899e2d.jpeg)  |
-| 38 | keyes传感器 | keyes DHT11温湿度传感器(焊盘孔) 红色 环保 | 1 |  ![](media/852073b6ad9e83c2130d45b7f1565efc.jpeg)  |
-| 39 | Keyes模块 | keyes 1302时钟模块(焊盘孔) 红色 环保 | 1 |  ![](media/c357327e8c1628ef3f7124c24eeddb52.jpeg)  |
-| 40 | keyes传感器 | keyes 人体红外热释电传感器(焊盘孔) 红色 环保 | 1 |  ![](media/b925dc7d677ba8b1077b1251cc1c39e6.jpeg)  |
-| 41 | keyes驱动板 | Keyes ULN2003步进电机驱动板（焊盘孔） 红色 环保 | 1 |  ![](media/875fa2102e406d90430651a4255ba6da.jpeg)  |
-| 42 | keyes传感器 | keyes MQ-2 烟雾传感器(焊盘孔) 红色 环保 | 1 |  ![](media/c3d916418ccd91ad9457b4173af0187a.jpeg)  |
-| 43 | keyes传感器 | keyes 摇杆模块传感器(焊盘孔) 红色 环保 | 1 |  ![](media/30d2a9088cb61ea6cd53f73fe295d8b5.jpeg)  |
-| 44 | 传感器模块 | keyes TMD27713 距离传感器 | 1 |  ![](media/51a73fb1094e0c141a3a7c710d969129.jpg)  |
-| 45 | 传感器模块 | keyes MMA8452Q 三轴数字加速度传感器 | 1 |  ![](media/24814d92aa9aa7d14e53749a80845461.jpeg)  |
-| 46 | 传感器模块 | keyes GUVA-S12SD 3528 太阳光紫外线传感器 | 1 |  ![](media/363a4a8c176a88557765f9c71f2e80ef.jpg)  |
-| 47 | 电阻卡 | 100*70MM | 1 |  ![](media/87a997f40fe09d5f3bb64b538b9c4562.jpeg)  |
-| 48 | 开发板 | Keyes UNO R3 开发板 for arduino 红色 环保 | 1 |  ![](media/6b4abbba47e653c4c9f32dd592c4169b.jpeg)  |
-| 48 | 开发板 | Keyes 2560 R3 开发板 for arduino 红色 环保 | 1 |  ![](media/4456a83cad7d95811ac569b394aab248.jpeg)  |
-
+# Arduino
 
 # Arduino IDE和驱动的安装
 
@@ -4094,13 +4033,5 @@ void loop()
 测试结果
 
 接上线，烧录程序，上电后，在1602 LCD上显示代表紫外线含量的数值，当数值小于10时，LED熄灭；当数值大于等于10时，LED亮起。
-
-# 相关资料链接
-
-链接：[https://pan.baidu.com/s/1ua3cZxtv90vT7IjqpaVK3w?pwd=xc5v](https://pan.baidu.com/s/1ua3cZxtv90vT7IjqpaVK3w?pwd=xc5v)
-提取码：xc5v
-
-
-
 
 
