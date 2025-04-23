@@ -1,5 +1,5 @@
-# Arduino IDE和驱动的安装
 
+# Arduino IDE和驱动的安装
 
 当我们拿到开发板时，首先我们要安装Arduino IDE和驱动，相关文件我们可以在官网上找到，以下链接是包含各种系统、各种版本的Arduino IDE和驱动任你选择。
 
@@ -73,19 +73,19 @@ int val;
 int ledpin=13; 
 void setup()
 {
-Serial.begin(9600);
-pinMode(ledpin,OUTPUT);
+    Serial.begin(9600);
+    pinMode(ledpin,OUTPUT);	
 }
 void loop()
 {
-val=Serial.read();
+    val=Serial.read();
 if(val=='R')
 {
-digitalWrite(ledpin,HIGH);
-delay(500);
-digitalWrite(ledpin,LOW);
-delay(500);
-Serial.println("Hello World!");
+    digitalWrite(ledpin,HIGH);
+    delay(500);
+    digitalWrite(ledpin,LOW);
+    delay(500);
+    Serial.println("Hello World!");
 }
 }
 ```
@@ -114,10 +114,6 @@ Serial.println("Hello World!");
 
 # 实验课程
 
-<span style="background: rgb(61, 170, 214);"><span style="color: rgb(255, 255, 255);">在线课程视频：</span></span>
-
-[https://www.bilibili.com/video/BV1Mx4y1p7xR](https://www.bilibili.com/video/BV1Mx4y1p7xR)
-
 ## 实验一 LED 闪烁实验
 
 实验说明
@@ -127,15 +123,15 @@ LED 闪烁实验是比较基础的实验之一，上一个“ Hello World！”�
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -177,15 +173,15 @@ void loop()
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -236,15 +232,15 @@ delay(1000);// 延迟1S
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*5
+LED\*5
 
-220Ω 电阻*5
+220Ω 电阻\*5
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -303,19 +299,19 @@ I/O 口的意思即为INPUT 接口和OUTPUT
 
 实验器材
 
-开发板 *1
+开发板 \*1
 
-USB线*1
+USB线\*1
 
-LED*1
+LED\*1
 
-轻触按键*1
+轻触按键\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-10KΩ 电阻*1
+10KΩ 电阻\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -373,17 +369,17 @@ B三个引脚的PWM电压输入可以调节三种基色（红/蓝/绿）的强�
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-keyes 插件RGB模块*1
+keyes 插件RGB模块\*1
 
-轻触按键*4
+轻触按键\*4
 
-10KΩ 电阻*4
+10KΩ 电阻\*4
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -402,70 +398,96 @@ keyes 插件RGB模块*1
 测试代码
 
 ```
-int redled=11;     
-int greenled=10; 
-int blueled=9;  
-int redpin=5;    
-int greenpin=4; 
-int bluepin=3;   
-int restpin=2;   
-int red;
-int green;
-int blue;
+// 定义LED引脚（使用PWM输出）
+int redled=11;     // 红色LED连接的数字引脚11
+int greenled=10;   // 绿色LED连接的数字引脚10 
+int blueled=9;     // 蓝色LED连接的数字引脚9  
+
+// 定义按钮输入引脚
+int redpin=5;      // 红色按钮连接的数字引脚5    
+int greenpin=4;    // 绿色按钮连接的数字引脚4 
+int bluepin=3;     // 蓝色按钮连接的数字引脚3   
+int restpin=2;     // 复位按钮连接的数字引脚2   
+
+// 存储按钮状态的变量
+int red;           // 红色按钮状态
+int green;         // 绿色按钮状态
+int blue;          // 蓝色按钮状态
+
+// 初始化函数
 void setup()
 {
-pinMode(redled,OUTPUT);
-pinMode(greenled,OUTPUT);
-pinMode( blueled,OUTPUT);
-pinMode(redpin,INPUT);
-pinMode(greenpin,INPUT);
-pinMode(bluepin,INPUT);
+  // 设置LED引脚为输出模式
+  pinMode(redled,OUTPUT);
+  pinMode(greenled,OUTPUT);
+  pinMode(blueled,OUTPUT);
+  
+  // 设置按钮引脚为输入模式
+  pinMode(redpin,INPUT);
+  pinMode(greenpin,INPUT);
+  pinMode(bluepin,INPUT);
 }
+
+// 主循环函数
 void loop() 
 {
-red=digitalRead(redpin);
-green=digitalRead(greenpin);
-blue=digitalRead(bluepin);
-if(red==LOW)RED_YES();    
-if(green==LOW)GREEN_YES();
-if(blue==LOW)BLUE_YES();
+  // 读取按钮状态
+  red=digitalRead(redpin);
+  green=digitalRead(greenpin);
+  blue=digitalRead(bluepin);
+  
+  // 检测按钮按下并执行对应函数
+  if(red==LOW)RED_YES();    // 如果红色按钮按下，执行RED_YES()
+  if(green==LOW)GREEN_YES();// 如果绿色按钮按下，执行GREEN_YES()
+  if(blue==LOW)BLUE_YES();  // 如果蓝色按钮按下，执行BLUE_YES()
 }
 
+// 红色LED控制函数
 void RED_YES() 
 {
+  // 当复位按钮未被按下时保持红色
   while(digitalRead(restpin)==1)
   {
-color(255, 0, 0); 
- }
-  clear_led();
+    color(255, 0, 0); // 设置RGB颜色为纯红
+  }
+  clear_led(); // 复位后清除LED颜色
 }
+
+// 绿色LED控制函数
 void GREEN_YES()
 {
+  // 当复位按钮未被按下时保持绿色
   while(digitalRead(restpin)==1)
   {
-color(0, 255, 0); 
+    color(0, 255, 0); // 设置RGB颜色为纯绿
   }
-  clear_led();
+  clear_led(); // 复位后清除LED颜色
 }
+
+// 蓝色LED控制函数
 void BLUE_YES()
 {
+  // 当复位按钮未被按下时保持蓝色
   while(digitalRead(restpin)==1)
   {
- color(0, 0, 255); 
-
+    color(0, 0, 255); // 设置RGB颜色为纯蓝
   }
-  clear_led();
+  clear_led(); // 复位后清除LED颜色
 }
+
+// 关闭所有LED函数
 void clear_led()
 {
- color(0, 0, 0); 
+  color(0, 0, 0); // 设置RGB颜色为全关(黑色)
 }
-void color (unsigned char red, unsigned char green, unsigned char blue)  //颜色控制函数 
+
+// RGB颜色控制函数
+void color (unsigned char red, unsigned char green, unsigned char blue)  
 {    
-  analogWrite(redled, red);   
-  analogWrite(greenled,green); 
-  analogWrite(blueled, blue); 
-} 
+  analogWrite(redled, red);   // 设置红色LED亮度
+  analogWrite(greenled,green); // 设置绿色LED亮度
+  analogWrite(blueled, blue); // 设置蓝色LED亮度
+}
 ```
 
 测试结果
@@ -480,17 +502,17 @@ void color (unsigned char red, unsigned char green, unsigned char blue)  //颜�
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-可调电位器*1
+可调电位器\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -540,19 +562,19 @@ delay(100);//延时0.1 秒
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-10KΩ 电阻*1
+10KΩ 电阻\*1
 
-光敏电阻*1
+光敏电阻\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -598,13 +620,13 @@ delay(10);//延时0.01 秒
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-有源蜂鸣器*1
+有源蜂鸣器\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -649,13 +671,13 @@ void loop()
 
 实验器材
 
-开发板 *1
+开发板 \*1
 
-USB线*1
+USB线\*1
 
-无源蜂鸣器*1
+无源蜂鸣器\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -808,17 +830,17 @@ void loop()
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-有源蜂鸣器*1
+有源蜂鸣器\*1
 
-火焰传感器*1
+火焰传感器\*1
 
-10KΩ 电阻*1
+10KΩ 电阻\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -872,17 +894,17 @@ LM35 是很常用且易用的温度传感器元件，将LM35
 
 实验器材
 
-开发板 *1
+开发板 \*1
 
-USB线*1
+USB线\*1
 
-LM35DZ*1
+LM35DZ\*1
 
-LED*3
+LED\*3
 
-220Ω 电阻*3
+220Ω 电阻\*3
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -899,36 +921,45 @@ LED*3
 测试代码
 
 ```
+// 初始化函数
 void setup() {
+  // 初始化串口通信，波特率设置为9600
   Serial.begin(9600);
+  
+  // 设置数字引脚12、11、10为输出模式（用于控制LED等设备）
   pinMode(12, OUTPUT);
   pinMode(11, OUTPUT);
   pinMode(10, OUTPUT);
 }
+
+// 主循环函数
 void loop() {
- int vol = analogRead(A0) * (5.0 / 1023.0*100);  
- Serial.print("Tep:");
- Serial.print(vol);
- Serial.println("C");
-if (vol<28)                   
-{
-  digitalWrite(12, HIGH);
-  digitalWrite(11, LOW);
-  digitalWrite(10, LOW);
+  // 读取模拟输入A0的值，并转换为温度值（假设是温度传感器）
+  // 计算过程：模拟值(0-1023) -> 电压值(0-5V) -> 温度值(0-100℃)
+  int vol = analogRead(A0) * (5.0 / 1023.0 * 100);  
+  
+  // 通过串口打印温度值
+  Serial.print("Tep:");      // 输出温度标签
+  Serial.print(vol);         // 输出温度数值
+  Serial.println("C");       // 输出温度单位并换行
+
+  // 温度控制逻辑
+  if (vol < 28) {                   // 当温度低于28℃时
+    digitalWrite(12, HIGH);        // 开启12号引脚设备（如红色LED）
+    digitalWrite(11, LOW);          // 关闭11号引脚设备
+    digitalWrite(10, LOW);          // 关闭10号引脚设备
+  }
+  else if (vol >= 28 && vol <= 30) { // 当温度在28℃到30℃之间时                            
+    digitalWrite(12, LOW);          // 关闭12号引脚设备
+    digitalWrite(11, HIGH);         // 开启11号引脚设备（如黄色LED）
+    digitalWrite(10, LOW);          // 关闭10号引脚设备
+  }
+  else if (vol > 30) {              // 当温度高于30℃时                              
+    digitalWrite(12, LOW);          // 关闭12号引脚设备
+    digitalWrite(11, LOW);          // 关闭11号引脚设备
+    digitalWrite(10, HIGH);         // 开启10号引脚设备（如绿色LED）
+  }
 }
-else if (vol>=28 && vol<=30)                            
- {
-  digitalWrite(12, LOW);
-  digitalWrite(11, HIGH);
-  digitalWrite(10, LOW);
-}
-else if (vol>30)                              
-{
-  digitalWrite(12, LOW);
-  digitalWrite(11, LOW);
-  digitalWrite(10, HIGH);
-}
- }
 ```
 
 测试结果
@@ -948,19 +979,19 @@ else if (vol>30)
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*2
+LED\*2
 
-倾斜开关*2
+倾斜开关\*2
 
-220Ω 电阻*2
+220Ω 电阻\*2
 
-10KΩ 电阻*2
+10KΩ 电阻\*2
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -1052,15 +1083,15 @@ VS1838B是集接收、放大、解调一体的器件，它内部IC就已经完�
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-红外遥控*1
+红外遥控\*1
 
-红外接收 VS1838B*1
+红外接收 VS1838B\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -1111,15 +1142,15 @@ irrecv.resume(); // 接收下个数据
 
 实验器材
 
-开发板 *1
+开发板 \*1
 
-USB线*1
+USB线\*1
 
-一位数码管*1
+一位数码管\*1
 
-220Ω 电阻*8
+220Ω 电阻\*8
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -1280,17 +1311,17 @@ delay(1000); //延时1s
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-74HC595*1
+74HC595\*1
 
-一位数码管*1
+一位数码管\*1
 
-220Ω 电阻*8
+220Ω 电阻\*8
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -1335,35 +1366,35 @@ void loop()
 
 下载完程序后，数码管循环显示0～9 数字。
 
-## 实验十六 8*8点阵显示实验
+## 实验十六 8\*8点阵显示实验
 
 实验说明
 
 点阵在我们生活中很常见，很多都有用到他，比如LED广告显示屏，电梯显示楼层，公交车报站等等。
 
-8*8点阵共由64个发光二极管组成，且每个发光二极管是放置在行线和列线的交叉点上，当对应的某一行置高电平，某一列置低电平，则相应的二极管就亮；如要将第一个点点亮，则7脚接高电平A脚接低电平，则第一个点就亮了；如果要将第一行点亮，则第7脚要接高电平，而A、B、C、D、E、F、G、H这些引脚接低电平，那么第一行就会点亮；如要将第一列点亮，则第A脚接低电平，而0、1、2、3、4、5、6、7接高电平，那么第一列就会点亮。
+8\*8点阵共由64个发光二极管组成，且每个发光二极管是放置在行线和列线的交叉点上，当对应的某一行置高电平，某一列置低电平，则相应的二极管就亮；如要将第一个点点亮，则7脚接高电平A脚接低电平，则第一个点就亮了；如果要将第一行点亮，则第7脚要接高电平，而A、B、C、D、E、F、G、H这些引脚接低电平，那么第一行就会点亮；如要将第一列点亮，则第A脚接低电平，而0、1、2、3、4、5、6、7接高电平，那么第一列就会点亮。
 
 在本课程中，我们只是让点阵输出一个“0”。
 
-8*8点阵原理图
+8\*8点阵原理图
 
 ![](media/fb0ef0ba9caadaa8c7c2b4f7e0b21019.png)
 
-8*8点阵实物图
+8\*8点阵实物图
 
 ![](media/3b0fa2576c13d7236e8ff4d02872c7e2.png)![](media/56a85608d9c2aec46202d13416831e56.png)
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-8*8点阵*1
+8\*8点阵\*1
 
-220Ω 电阻*8
+220Ω 电阻\*8
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -1443,15 +1474,15 @@ void clear_(void)//清除屏幕
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-四位数码管*1
+四位数码管\*1
 
-220Ω 电阻*8
+220Ω 电阻\*8
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -1468,27 +1499,31 @@ USB线*1
 测试代码
 
 ```
-int a = 1;
-int b = 2;
-int c = 3;
-int d = 4;
-int e = 5;
-int f = 6;
-int g = 7;
-int dp = 8;
+// 数码管各段引脚定义
+int a = 1;  // a段数码管引脚
+int b = 2;  // b段数码管引脚
+int c = 3;  // c段数码管引脚
+int d = 4;  // d段数码管引脚
+int e = 5;  // e段数码管引脚
+int f = 6;  // f段数码管引脚
+int g = 7;  // g段数码管引脚
+int dp = 8; // dp小数点引脚
 
-int d4 = 9;
-int d3 = 10;
-int d2 = 11;
-int d1 = 12;
+// 数码管位选引脚定义
+int d4 = 9;  // 第4位数码管位选
+int d3 = 10; // 第3位数码管位选
+int d2 = 11; // 第2位数码管位选
+int d1 = 12; // 第1位数码管位选
 
-// set variable
-long n = 1230;
-int x = 100;
-int del = 55;    // fine adjustment for clock
+// 全局变量
+long n = 1230;  // 初始数值
+int x = 100;    // 未使用变量
+int del = 55;   // 延时调整参数
 
+// 初始化设置
 void setup()
 {
+  // 设置所有引脚为输出模式
   pinMode(d1, OUTPUT);
   pinMode(d2, OUTPUT);
   pinMode(d3, OUTPUT);
@@ -1502,52 +1537,65 @@ void setup()
   pinMode(g, OUTPUT);
   pinMode(dp, OUTPUT);
 }
-/////////////////////////////////////////////////////////////
+
+// 主循环
 void loop()
 {
-  int a=0;
-  int b=0;
-  int c=0;
-  int d=0;
+  int a=0; // 千位计数器
+  int b=0; // 百位计数器
+  int c=0; // 十位计数器
+  int d=0; // 个位计数器
+  
+  // 获取当前时间
   unsigned long currentMillis = millis();
 
+  // 无限计数循环
   while(d>=0)
   {
+    // 每秒更新一次显示
     while(millis()-currentMillis<1000)
-     {
+    {
+      // 动态扫描显示4位数码管
       Display(1,a);
       Display(2,b);
       Display(3,c);
       Display(4,d);
-     }
+    }
+    
+    // 更新时间标记
     currentMillis = millis(); 
+    
+    // 数字递增
     d++;  
-  if (d>9) 
-  {
-   c++;
-   d=0;
-  }
+    
+    // 进位处理
+    if (d>9) 
+    {
+      c++;
+      d=0;
+    }
     if (c>9) 
-  {
-   b++;
-   c=0;
-  }
+    {
+      b++;
+      c=0;
+    }
     if (b>9) 
-  {
-   a++;
-   b=0;
-  }
+    {
+      a++;
+      b=0;
+    }
     if (a>9) 
-  {
-   a=0;
-   b=0;
-   c=0;
-   d=0;
-  }
+    {
+      a=0;
+      b=0;
+      c=0;
+      d=0;
+    }
   }  
 }
-///////////////////////////////////////////////////////////////
-void WeiXuan(unsigned char n)//
+
+// 位选函数
+void WeiXuan(unsigned char n)
 {
   switch (n)
   {
@@ -1583,6 +1631,8 @@ void WeiXuan(unsigned char n)//
       break;
   }
 }
+
+// 数字0-9的段选定义
 void Num_0()
 {
   digitalWrite(a, HIGH);
@@ -1693,7 +1743,9 @@ void Num_9()
   digitalWrite(g, HIGH);
   digitalWrite(dp, LOW);
 }
-void Clear()    // clear the screen
+
+// 清空数码管显示
+void Clear()
 {
   digitalWrite(a, LOW);
   digitalWrite(b, LOW);
@@ -1704,12 +1756,13 @@ void Clear()    // clear the screen
   digitalWrite(g, LOW);
   digitalWrite(dp, LOW);
 }
-void pickNumber(unsigned char n)// select number
+
+// 数字选择函数
+void pickNumber(unsigned char n)
 {
   switch (n)
   {
     case 0: Num_0();
-
       break;
     case 1: Num_1();
       break;
@@ -1733,12 +1786,14 @@ void pickNumber(unsigned char n)// select number
       break;
   }
 }
-void Display(unsigned char x, unsigned char Number)//    take x as coordinate and display number
+
+// 数码管显示函数
+void Display(unsigned char x, unsigned char Number)
 {
-  WeiXuan(x);
-  pickNumber(Number);
-  delay(1);
-  Clear() ; // clear the screen
+  WeiXuan(x);        // 选择显示位
+  pickNumber(Number); // 显示数字
+  delay(1);          // 短暂延时
+  Clear();           // 清空显示
 }
 ```
 
@@ -1762,11 +1817,11 @@ LCD屏需要7个IO口才能驱动起来，1602 I2C 蓝屏模块含LCD1602转接�
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-1602 I2C 蓝屏*1
+1602 I2C 蓝屏\*1
 
 杜邦线若干
 
@@ -1783,22 +1838,39 @@ USB线*1
 测试代码
 
 ```
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+// 引入必要的库文件
+#include <Wire.h>                 // I2C通信库
+#include <LiquidCrystal_I2C.h>    // I2C LCD控制库
+
+// 初始化LCD对象
+// 参数说明：0x27是I2C地址，16字符宽度，2行显示
+LiquidCrystal_I2C lcd(0x27,16,2);  
+
+// 初始化设置函数
 void setup()
 {
-  lcd.init();                      // initialize the lcd 
-  lcd.init();
-  // Print a message to the LCD.
+  // 初始化LCD显示屏
+  lcd.init();                     // 第一次初始化
+  lcd.init();                     // 第二次初始化（重复初始化可能是个笔误）
+  
+  // 开启LCD背光
   lcd.backlight();
-  lcd.setCursor(2,0);
-  lcd.print("Hello, world!");
-  lcd.setCursor(2,1);
-  lcd.print("Hello, keyes!");
+  
+  // 设置光标位置并显示第一行文字
+  // 参数说明：(列位置, 行位置)
+  lcd.setCursor(2,0);             // 第0行第2列
+  lcd.print("Hello, world!");     // 打印"Hello, world!"
+  
+  // 设置光标位置并显示第二行文字
+  lcd.setCursor(2,1);             // 第1行第2列
+  lcd.print("Hello, keyes!");     // 打印"Hello, keyes!"
 }
+
+// 主循环函数
 void loop()
 {
+  // 此处为空，因为只需要初始化时显示一次内容
+  // 如果需要动态内容可以在这里添加代码
 }
 ```
 
@@ -1815,15 +1887,15 @@ void loop()
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-1602 I2C 蓝屏*1
+1602 I2C 蓝屏\*1
 
-超声波传感器*1
+超声波传感器\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -1842,76 +1914,87 @@ USB线*1
 测试代码
 
 ```
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
+// 引入必要的库文件
+#include <Wire.h>                 // I2C通信库
+#include <LiquidCrystal_I2C.h>    // I2C LCD控制库
+
+// 初始化LCD对象(地址0x27，16列2行)
 LiquidCrystal_I2C lcd(0x27,16,2);
-#define echoPin 9 // Echo Pin
-#define trigPin 8 // Trigger Pin
-#define LEDPin 13 // Onboard LED
-int maximumRange = 200; // Maximum range needed
-int minimumRange = 0; // Minimum range needed
-long duration, distance; // Duration used to calculate distance
+
+// 定义超声波传感器引脚
+#define echoPin 9   // 回声信号接收引脚
+#define trigPin 8   // 触发信号发送引脚
+#define LEDPin 13   // 板载LED指示灯引脚
+
+// 定义测量范围
+int maximumRange = 200; // 最大测量距离(cm)
+int minimumRange = 0;   // 最小测量距离(cm)
+
+// 定义测量变量
+long duration, distance; // 持续时间和计算出的距离
 
 void setup() {
- pinMode(trigPin, OUTPUT);
- pinMode(echoPin, INPUT);
- pinMode(LEDPin, OUTPUT); // Use LED indicator (if required)
-  lcd.init();                      // initialize the lcd 
-  // Print a message to the LCD.
-  lcd.init();
-  lcd.backlight();
-lcd.setCursor(0,0);
-  lcd.print("The distance is:");
+  // 初始化各引脚模式
+  pinMode(trigPin, OUTPUT);  // 触发引脚设为输出
+  pinMode(echoPin, INPUT);   // 回声引脚设为输入
+  pinMode(LEDPin, OUTPUT);   // LED引脚设为输出
+  
+  // 初始化LCD显示屏
+  lcd.init();                // 初始化LCD
+  lcd.backlight();           // 开启背光
+  
+  // 显示固定标题
+  lcd.setCursor(0,0);        // 设置光标位置(第0行第0列)
+  lcd.print("The distance is:"); // 打印固定文字
 }
 
 void loop() {
-/* The following trigPin/echoPin cycle is used to determine the
- distance of the nearest object by bouncing soundwaves off of it. */ 
- digitalWrite(trigPin, LOW); 
- delayMicroseconds(2); 
- digitalWrite(trigPin, HIGH);
- delayMicroseconds(10); 
- digitalWrite(trigPin, LOW);
- duration = pulseIn(echoPin, HIGH);
- 
- //Calculate the distance (in cm) based on the speed of sound.
- distance = duration/58.2;
- 
- if (distance >= maximumRange || distance <= minimumRange){
- /* Send a negative number to computer and Turn LED ON 
- to indicate "out of range" */
- lcd.setCursor(0,1);
- lcd.print("-1     ");
- digitalWrite(LEDPin, HIGH); 
- }
- else {
- /* Send the distance to the computer using Serial protocol, and
- turn LED OFF to indicate successful reading. */
- Serial.println(distance);
- if(distance<10)
-{
- lcd.setCursor(0,1);
- lcd.print(distance);
- lcd.setCursor(1,1);
- lcd.print("  ");
-}
-if((distance >=10)&&(distance<100))
-{
- lcd.setCursor(0,1);
- lcd.print(distance);
- lcd.setCursor(2,1);
- lcd.print("  ");
-}
- if(distance>100)
-{
- lcd.setCursor(0,1);
- lcd.print(distance);
-}
- digitalWrite(LEDPin, LOW); 
- }
- 
- //Delay 50ms before next reading.
- delay(50);
+  // 超声波测距过程
+  digitalWrite(trigPin, LOW);    // 先拉低触发引脚
+  delayMicroseconds(2);          // 等待2微秒
+  digitalWrite(trigPin, HIGH);   // 发送10微秒的高电平脉冲
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  // 测量回声高电平持续时间
+  duration = pulseIn(echoPin, HIGH);
+  
+  // 计算距离(单位:cm)
+  distance = duration/58.2;      // 根据声速换算距离
+  
+  // 处理测量结果
+  if (distance >= maximumRange || distance <= minimumRange){
+    // 超出测量范围的处理
+    lcd.setCursor(0,1);          // 设置光标位置(第1行第0列)
+    lcd.print("-1     ");        // 显示-1表示超出范围
+    digitalWrite(LEDPin, HIGH);  // 点亮LED表示异常
+  }
+  else {
+    // 正常范围内的处理
+    if(distance < 10) {
+      // 个位数距离显示处理
+      lcd.setCursor(0,1);
+      lcd.print(distance);       // 显示距离值
+      lcd.setCursor(1,1);
+      lcd.print("  ");           // 清除多余字符
+    }
+    else if((distance >=10) && (distance<100)) {
+      // 两位数距离显示处理
+      lcd.setCursor(0,1);
+      lcd.print(distance);
+      lcd.setCursor(2,1);
+      lcd.print("  ");           // 清除多余字符
+    }
+    else if(distance >= 100) {
+      // 三位数距离显示处理
+      lcd.setCursor(0,1);
+      lcd.print(distance);
+    }
+    digitalWrite(LEDPin, LOW);   // 关闭LED表示正常
+  }
+  
+  // 延时50ms后进行下一次测量
+  delay(50);
 }
 ```
 
@@ -1934,15 +2017,15 @@ if((distance >=10)&&(distance<100))
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-1602 I2C 蓝屏*1
+1602 I2C 蓝屏\*1
 
-1302时钟模块*1
+1302时钟模块\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -1961,103 +2044,94 @@ USB线*1
 测试代码
 
 ```
-#include <stdio.h>
-#include <string.h>
-#include <DS1302.h>
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
+// 引入必要的库文件
+#include <stdio.h>               // 标准输入输出库
+#include <string.h>              // 字符串处理库
+#include <DS1302.h>              // DS1302时钟模块库
+#include <Wire.h>                // I2C通信库
+#include <LiquidCrystal_I2C.h>   // I2C LCD控制库
+
+// 初始化LCD对象(地址0x27，16列2行)
 LiquidCrystal_I2C lcd(0x27,16,2);
-/* Set the appropriate digital I/O pin connections */
-uint8_t CE_PIN   = 10;    // RST
-uint8_t IO_PIN   = 9;   // DAT 
-uint8_t SCLK_PIN = 8;  // CLK 
-/* Create buffers */
-char buf[50];
-char bf[50];
-char bu[50];
-char uf[50];
-char day[10];
-/* Create a DS1302 object */
+
+// 定义DS1302时钟模块引脚连接
+uint8_t CE_PIN   = 10;    // RST复位引脚
+uint8_t IO_PIN   = 9;     // DAT数据引脚
+uint8_t SCLK_PIN = 8;     // CLK时钟引脚
+
+// 创建显示缓冲区
+char buf[50];   // 完整时间信息缓冲区
+char bf[50];    // 日期和年份缓冲区
+char bu[50];    // 时间缓冲区
+char uf[50];    // 月份和日期缓冲区
+char day[10];   // 星期缓冲区
+
+// 创建DS1302对象
 DS1302 rtc(CE_PIN, IO_PIN, SCLK_PIN);
+
+// 时间显示函数
 void print_time()
 {
-  /* Get the current time and date from the chip */
+  // 从芯片获取当前时间和日期
   Time t = rtc.time();
 
-  /* Name the day of the week */
-  memset(day, 0, sizeof(day));  /* clear day buffer */
+  // 将星期数字转换为字符串
+  memset(day, 0, sizeof(day));  // 清空星期缓冲区
   switch (t.day) {
-    case 1:
-      strcpy(day, "Sunday   ");
-      break;
-    case 2:
-      strcpy(day, "Monday   ");
-      break;
-    case 3:
-      strcpy(day, "Tuesday  ");
-      break;
-    case 4:
-      strcpy(day, "Wednesday");
-      break;
-    case 5:
-      strcpy(day, "Thursday ");
-      break;
-    case 6:
-      strcpy(day, "Friday   ");
-      break;
-    case 7:
-      strcpy(day, "Saturday ");
-      break;
+    case 1: strcpy(day, "Sunday   "); break;
+    case 2: strcpy(day, "Monday   "); break;
+    case 3: strcpy(day, "Tuesday  "); break;
+    case 4: strcpy(day, "Wednesday"); break;
+    case 5: strcpy(day, "Thursday "); break;
+    case 6: strcpy(day, "Friday   "); break;
+    case 7: strcpy(day, "Saturday "); break;
   }
 
-  /* Format the time and date and insert into the temporary buffer */
+  // 格式化完整时间字符串并存入缓冲区
   snprintf(buf, sizeof(buf), "%s %04d-%02d-%02d %02d:%02d:%02d",
-           day,
-           t.yr, t.mon, t.date,
-           t.hr, t.min, t.sec);
-           Serial.println(buf);
-  snprintf(bf, sizeof(bf), "%s  %04d",
-          day, t.yr);
-  lcd.setCursor(0,0);
-  lcd.print(bf);
-  snprintf(bu, sizeof(bu),"%02d:%02d:%02d",
-           t.hr, t.min, t.sec);
-  /* Print the formatted string to serial so we can see the time */
-  lcd.setCursor(0,1);
-  lcd.print(bu);
-  snprintf(uf, sizeof(uf), "%02d-%02d",
-         t.mon, t.date);
-  lcd.setCursor(11,1);
-  lcd.print(uf);
+           day, t.yr, t.mon, t.date, t.hr, t.min, t.sec);
+  Serial.println(buf);  // 串口输出完整时间
+
+  // 格式化LCD第一行显示内容(星期和年份)
+  snprintf(bf, sizeof(bf), "%s  %04d", day, t.yr);
+  lcd.setCursor(0,0);   // 设置光标位置(第0行第0列)
+  lcd.print(bf);        // 显示星期和年份
+
+  // 格式化LCD第二行时间显示(时:分:秒)
+  snprintf(bu, sizeof(bu), "%02d:%02d:%02d", t.hr, t.min, t.sec);
+  lcd.setCursor(0,1);   // 设置光标位置(第1行第0列)
+  lcd.print(bu);        // 显示时间
+
+  // 格式化LCD第二行日期显示(月-日)
+  snprintf(uf, sizeof(uf), "%02d-%02d", t.mon, t.date);
+  lcd.setCursor(11,1);  // 设置光标位置(第1行第11列)
+  lcd.print(uf);        // 显示月份和日期
 }
+
+// 初始化设置
 void setup()
 {
-  lcd.init();                      // initialize the lcd 
-  // Print a message to the LCD.
-  lcd.init();
-  lcd.backlight();
+  // 初始化LCD显示屏
+  lcd.init();           // 初始化LCD
+  lcd.backlight();      // 开启背光
+  
+  // 初始化串口通信
   Serial.begin(9600);
 
-  /* Initialize a new chip by turning off write protection and clearing the
-     clock halt flag. These methods needn't always be called. See the DS1302
-     datasheet for details. */
-  rtc.write_protect(false);
-  rtc.halt(false);
+  // 初始化DS1302时钟模块
+  rtc.write_protect(false);  // 关闭写保护
+  rtc.halt(false);          // 清除时钟停止标志
 
-  /* Make a new time object to set the date and time */
-  /*   Tuesday, May 19, 2009 at 21:16:37.            */
+  // 设置初始时间(2017年10月24日，星期二，10:11:22)
   Time t(2017,10,24,10,11,22,3);
-
-  /* Set the time and date on the chip */
-  rtc.time(t);
+  rtc.time(t);  // 写入时间到DS1302
 }
 
-
-/* Loop and print the time every second */
+// 主循环
 void loop()
 {
-  print_time();
-  delay(1000);
+  print_time();  // 每秒更新时间显示
+  delay(1000);   // 延时1秒
 }
 ```
 
@@ -2080,19 +2154,19 @@ void loop()
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-1602 I2C 蓝屏*1
+1602 I2C 蓝屏\*1
 
-人体红外热释电传感器*1
+人体红外热释电传感器\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -2163,17 +2237,17 @@ void loop()
 
 ![](media/3ba5903153ae930391084d54e7523f8f.png)
 
-4*4 薄膜按键脚位，请看上图。 其原理图如下
+4\*4 薄膜按键脚位，请看上图。 其原理图如下
 
 ![](media/fb7d889d4e1bfcf516cc064af597808d.png)
 
 实验器材
 
-开发板 *1
+开发板 \*1
 
-USB线*1
+USB线\*1
 
-4*4 薄膜按键*1
+4\*4 薄膜按键\*1
 
 面包板连接线若干
 
@@ -2266,13 +2340,13 @@ Serial.println(key);
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-减速步进电机*1
+减速步进电机\*1
 
-UL2003*1
+UL2003\*1
 
 杜邦线若干
 
@@ -2347,11 +2421,11 @@ void loop()
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-舵机*1
+舵机\*1
 
 面包线若干
 
@@ -2442,15 +2516,15 @@ myservo.write(90);//设置舵机旋转的角度
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-RFID－RC522 射频模块*1
+RFID－RC522 射频模块\*1
 
-IC卡*1
+IC卡\*1
 
-钥匙扣*1
+钥匙扣\*1
 
 杜邦线若干
 
@@ -2468,329 +2542,328 @@ IC卡*1
 
 ```
 #include <SPI.h>
-#define	uchar	unsigned char
-#define	uint	unsigned int
+#define uchar unsigned char
+#define uint unsigned int
 #define MAX_LEN 16
-const int chipSelectPin = 10;//if the controller is UNO,328,168
-//const int chipSelectPin = 53;//if the controller is MEGA 2560
+
+// 引脚定义
+const int chipSelectPin = 10;  // UNO,328,168控制器使用10引脚
+//const int chipSelectPin = 53; // MEGA 2560控制器使用53引脚
 const int NRSTPD = 5;
 
-//MF522command word
-#define PCD_IDLE              0x00               //NO action; cancel current command
-#define PCD_AUTHENT           0x0E               //verify key
-#define PCD_RECEIVE           0x08               //receive data
+// MF522命令字
+#define PCD_IDLE 0x00         // 无动作，取消当前命令
+#define PCD_AUTHENT 0x0E      // 验证密钥
+#define PCD_RECEIVE 0x08      // 接收数据
+#define PCD_TRANSMIT 0x04     // 发送数据
+#define PCD_TRANSCEIVE 0x0C   // 接收和发送数据
+#define PCD_RESETPHASE 0x0F   // 复位
+#define PCD_CALCCRC 0x03      // CRC计算
 
-#define PCD_TRANSMIT          0x04               //send data
-#define PCD_TRANSCEIVE        0x0C               //receive and send data
-#define PCD_RESETPHASE        0x0F               //reset
-#define PCD_CALCCRC           0x03               //CRC calculation
+// Mifare_One卡片命令字
+#define PICC_REQIDL 0x26      // 寻卡区域处于休眠状态
+#define PICC_REQALL 0x52      // 寻卡区域受到干扰
+#define PICC_ANTICOLL 0x93    // 防冲突
+#define PICC_SElECTTAG 0x93   // 选卡
+#define PICC_AUTHENT1A 0x60   // 验证A密钥
+#define PICC_AUTHENT1B 0x61   // 验证B密钥
+#define PICC_READ 0x30        // 读块
+#define PICC_WRITE 0xA0       // 写块
+#define PICC_DECREMENT 0xC0   
+#define PICC_INCREMENT 0xC1   
+#define PICC_RESTORE 0xC2     // 将数据转移到缓冲区
+#define PICC_TRANSFER 0xB0    // 保存缓冲区数据
+#define PICC_HALT 0x50        // 休眠
 
-//Mifare_One Card command word
-#define PICC_REQIDL           0x26               // line-tracking area is dormant #define PICC_REQALL           0x52                     //line-tracking area is interfered
-#define PICC_ANTICOLL         0x93               //Anti collision
-#define PICC_SElECTTAG        0x93               //choose cards
-#define PICC_AUTHENT1A        0x60               //Verify A key
-#define PICC_AUTHENT1B        0x61               //Verify B key
-#define PICC_READ             0x30               // Reader Module 
-#define PICC_WRITE            0xA0               // letter block
+// MF522通信返回错误码
+#define MI_OK 0
+#define MI_NOTAGERR 1
+#define MI_ERR 2
 
-#define PICC_DECREMENT        0xC0               
-#define PICC_INCREMENT        0xC1               
-#define PICC_RESTORE          0xC2               //Transfer data to buffer
-#define PICC_TRANSFER         0xB0               //Save buffer data
-#define PICC_HALT             0x50               //Dormancy
+//------------------MFRC522寄存器---------------
+// 第0页:命令和状态
+#define Reserved00 0x00    
+#define CommandReg 0x01    
+#define CommIEnReg 0x02    
+#define DivlEnReg 0x03    
+#define CommIrqReg 0x04    
+#define DivIrqReg 0x05
+#define ErrorReg 0x06    
+#define Status1Reg 0x07    
+#define Status2Reg 0x08    
+#define FIFODataReg 0x09
+#define FIFOLevelReg 0x0A
+#define WaterLevelReg 0x0B
+#define ControlReg 0x0C
+#define BitFramingReg 0x0D
+#define CollReg 0x0E
+#define Reserved01 0x0F
 
+// 第1页:命令     
+#define Reserved10 0x10
+#define ModeReg 0x11
+#define TxModeReg 0x12
+#define RxModeReg 0x13
+#define TxControlReg 0x14
+#define TxAutoReg 0x15
+#define TxSelReg 0x16
+#define RxSelReg 0x17
+#define RxThresholdReg 0x18
+#define DemodReg 0x19
+#define Reserved11 0x1A
+#define Reserved12 0x1B
+#define MifareReg 0x1C
+#define Reserved13 0x1D
+#define Reserved14 0x1E
+#define SerialSpeedReg 0x1F
 
-//MF522 Error code returned when communication
-#define MI_OK                 0
-#define MI_NOTAGERR           1
-#define MI_ERR                2
+// 第2页:配置    
+#define Reserved20 0x20  
+#define CRCResultRegM 0x21
+#define CRCResultRegL 0x22
+#define Reserved21 0x23
+#define ModWidthReg 0x24
+#define Reserved22 0x25
+#define RFCfgReg 0x26
+#define GsNReg 0x27
+#define CWGsPReg 0x28
+#define ModGsPReg 0x29
+#define TModeReg 0x2A
+#define TPrescalerReg 0x2B
+#define TReloadRegH 0x2C
+#define TReloadRegL 0x2D
+#define TCounterValueRegH 0x2E
+#define TCounterValueRegL 0x2F
 
+// 第3页:测试寄存器     
+#define Reserved30 0x30
+#define TestSel1Reg 0x31
+#define TestSel2Reg 0x32
+#define TestPinEnReg 0x33
+#define TestPinValueReg 0x34
+#define TestBusReg 0x35
+#define AutoTestReg 0x36
+#define VersionReg 0x37
+#define AnalogTestReg 0x38
+#define TestDAC1Reg 0x39  
+#define TestDAC2Reg 0x3A   
+#define TestADCReg 0x3B   
+#define Reserved31 0x3C   
+#define Reserved32 0x3D   
+#define Reserved33 0x3E   
+#define Reserved34 0x3F
 
-//------------------MFRC522 Register---------------
-//Page 0:Command and Status
-#define     Reserved00            0x00    
-#define     CommandReg            0x01    
-#define     CommIEnReg            0x02    
-#define     DivlEnReg             0x03    
-#define     CommIrqReg            0x04    
-#define     DivIrqReg             0x05
-#define     ErrorReg              0x06    
-#define     Status1Reg            0x07    
-#define     Status2Reg            0x08    
-#define     FIFODataReg           0x09
-#define     FIFOLevelReg          0x0A
-
-#define     WaterLevelReg         0x0B
-#define     ControlReg            0x0C
-#define     BitFramingReg         0x0D
-#define     CollReg               0x0E
-#define     Reserved01            0x0F
-//Page 1:Command     
-#define     Reserved10            0x10
-#define     ModeReg               0x11
-#define     TxModeReg             0x12
-#define     RxModeReg             0x13
-#define     TxControlReg          0x14
-#define     TxAutoReg             0x15
-#define     TxSelReg              0x16
-#define     RxSelReg              0x17
-#define     RxThresholdReg        0x18
-#define     DemodReg              0x19
-
-#define     Reserved11            0x1A
-#define     Reserved12            0x1B
-#define     MifareReg             0x1C
-#define     Reserved13            0x1D
-#define     Reserved14            0x1E
-#define     SerialSpeedReg        0x1F
-//Page 2:CFG    
-#define     Reserved20            0x20  
-#define     CRCResultRegM         0x21
-#define     CRCResultRegL         0x22
-#define     Reserved21            0x23
-#define     ModWidthReg           0x24
-#define     Reserved22            0x25
-#define     RFCfgReg              0x26
-#define     GsNReg                0x27
-#define     CWGsPReg	          0x28
-#define     ModGsPReg             0x29
-#define     TModeReg              0x2A
-#define     TPrescalerReg         0x2B
-#define     TReloadRegH           0x2C
-#define     TReloadRegL           0x2D
-#define     TCounterValueRegH     0x2E
-#define     TCounterValueRegL     0x2F
-//Page 3:TestRegister     
-#define     Reserved30            0x30
-
-#define     TestSel1Reg           0x31
-#define     TestSel2Reg           0x32
-#define     TestPinEnReg          0x33
-#define     TestPinValueReg       0x34
-#define     TestBusReg            0x35
-#define     AutoTestReg           0x36
-#define     VersionReg            0x37
-#define     AnalogTestReg         0x38
-#define     TestDAC1Reg           0x39  
-#define     TestDAC2Reg           0x3A   
-#define     TestADCReg            0x3B   
-#define     Reserved31            0x3C   
-#define     Reserved32            0x3D   
-#define     Reserved33            0x3E   
-#define     Reserved34			  0x3F
+// 全局变量
 uchar serNum[5];
-uchar  writeDate[16] ={'T', 'e', 'n', 'g', ' ', 'B', 'o', 0, 0, 0, 0, 0, 0, 0, 0,0};
+uchar writeDate[16] = {'T', 'e', 'n', 'g', ' ', 'B', 'o', 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-uchar sectorKeyA[16][16] = {{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-                             {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-                             {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-                            };
- uchar sectorNewKeyA[16][16] = {{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-                                {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-                                {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-                               };
+// 扇区密钥A
+uchar sectorKeyA[16][16] = {
+    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+};
 
-void setup() {                
-   Serial.begin(9600);    // RFID reader SOUT pin connected to Serial RX pin at 2400bps 
- // start the SPI library:
-  SPI.begin();
-  
-  pinMode(chipSelectPin,OUTPUT);             // Set digital pin 10 as OUTPUT to connect it to the RFID /ENABLE pin 
-    digitalWrite(chipSelectPin, LOW);          // Activate the RFID reader
-  pinMode(NRSTPD,OUTPUT);               // Set digital pin 10 , Not Reset and Power-down
-digitalWrite(NRSTPD, HIGH);
+// 新扇区密钥A
+uchar sectorNewKeyA[16][16] = {
+    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff, 0x07, 0x80, 0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff, 0x07, 0x80, 0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+};
 
+void setup()
+{
+    Serial.begin(9600);  // RFID读卡器SOUT引脚连接到串口RX引脚，波特率2400bps
+    
+    // 初始化SPI库
+    SPI.begin();
+    
+    // 设置数字引脚10为输出，连接到RFID的/ENABLE引脚
+    pinMode(chipSelectPin, OUTPUT);
+    digitalWrite(chipSelectPin, LOW);  // 激活RFID读卡器
+    
+    pinMode(NRSTPD, OUTPUT);  // 设置数字引脚5，用于复位和掉电控制
+    digitalWrite(NRSTPD, HIGH);
 
-  MFRC522_Init();  
+    MFRC522_Init();  // 初始化MFRC522
 }
 
 void loop()
 {
-  	uchar i,tmp;
-	uchar status;
-        uchar str[MAX_LEN];
-        uchar RC_size;
-        uchar blockAddr;	//Select the address of the operation 0～63
+    uchar i, tmp;
+    uchar status;
+    uchar str[MAX_LEN];
+    uchar RC_size;
+    uchar blockAddr;  // 操作块地址0～63
 
+    // 寻卡，返回卡片类型
+    status = MFRC522_Request(PICC_REQIDL, str);
+    if (status == MI_OK)
+    {
+    }
+    
+    // 防冲突，获取卡片序列号
+    status = MFRC522_Anticoll(str);
+    memcpy(serNum, str, 5);
+    if (status == MI_OK)
+    {
+        Serial.println("The card's number is: ");
+        Serial.print(serNum[0], BIN);
+        Serial.print(serNum[1], BIN);
+        Serial.print(serNum[2], BIN);
+        Serial.print(serNum[3], BIN);
+        Serial.print(serNum[4], BIN);
+        Serial.println(" ");
+    }
 
-		// searching card, return card type	
-		status = MFRC522_Request(PICC_REQIDL, str);	
-		if (status == MI_OK)
-		{
-		}
-
-		
-		status = MFRC522_Anticoll(str);
-		memcpy(serNum, str, 5);
-		if (status == MI_OK)
-		{
-                        Serial.println("The card's number is  : ");
-			Serial.print(serNum[0],BIN);
-			Serial.print(serNum[1],BIN);
-			Serial.print(serNum[2],BIN);
-			Serial.print(serNum[3],BIN);
-			Serial.print(serNum[4],BIN);
-                        Serial.println(" ");
-		}
-
-		// select card, return card capacity
-		RC_size = MFRC522_SelectTag(serNum);
-		if (RC_size != 0)
-		{}
-                
-		// write data card
-		blockAddr = 7;		// data block 7		
-		status = MFRC522_Auth(PICC_AUTHENT1A, blockAddr, sectorKeyA[blockAddr/4], serNum);	// authentication 
-		if (status == MI_OK)
-
-		{
-			// write data
-			status = MFRC522_Write(blockAddr, sectorNewKeyA[blockAddr/4]);
-                        Serial.print("set the new card password, and can modify the data of the Sector: ");
-                        Serial.print(blockAddr/4,DEC);
+    // 选卡，返回卡片容量
+    RC_size = MFRC522_SelectTag(serNum);
+    if (RC_size != 0)
+    {
+    }
+    
+    // 写卡数据
+    blockAddr = 7;  // 数据块7
+    status = MFRC522_Auth(PICC_AUTHENT1A, blockAddr, sectorKeyA[blockAddr/4], serNum);  // 验证
+    if (status == MI_OK)
+    {
+        // 写数据
+        status = MFRC522_Write(blockAddr, sectorNewKeyA[blockAddr/4]);
+        Serial.print("set the new card password, and can modify the data of the Sector: ");
+        Serial.print(blockAddr/4, DEC);
    
-                        // write data
-                        blockAddr = blockAddr - 3 ; 
-                        status = MFRC522_Write(blockAddr, writeDate);
-                        if(status == MI_OK)
-                        {
-                           Serial.println("OK!");
-                        }
-		}
+        // 写数据
+        blockAddr = blockAddr - 3;
+        status = MFRC522_Write(blockAddr, writeDate);
+        if (status == MI_OK)
+        {
+            Serial.println("OK!");
+        }
+    }
 
-		// read card
-		blockAddr = 7;		// data block 7		
-		status = MFRC522_Auth(PICC_AUTHENT1A, blockAddr, 
-
-sectorNewKeyA[blockAddr/4], serNum);	// authentication 
-		if (status == MI_OK)
-		{
-			// read data
-                        blockAddr = blockAddr - 3 ; 
-                        status = MFRC522_Read(blockAddr, str);
-			if (status == MI_OK)
-			{
-                                Serial.println("Read from the card ,the data is : ");
-				for (i=0; i<16; i++)
-				{
-              			      Serial.print(str[i]);
-				}
-                                Serial.println(" ");
-			}
-		}
-                Serial.println(" ");
-		MFRC522_Halt();			// command card into sleeping mode              
-          
+    // 读卡
+    blockAddr = 7;  // 数据块7
+    status = MFRC522_Auth(PICC_AUTHENT1A, blockAddr, sectorNewKeyA[blockAddr/4], serNum);  // 验证
+    if (status == MI_OK)
+    {
+        // 读数据
+        blockAddr = blockAddr - 3;
+        status = MFRC522_Read(blockAddr, str);
+        if (status == MI_OK)
+        {
+            Serial.println("Read from the card, the data is: ");
+            for (i = 0; i < 16; i++)
+            {
+                Serial.print(str[i]);
+            }
+            Serial.println(" ");
+        }
+    }
+    Serial.println(" ");
+    MFRC522_Halt();  // 命令卡片进入休眠模式
 }
 
+// 写MFRC522寄存器
 void Write_MFRC522(uchar addr, uchar val)
-
 {
-	digitalWrite(chipSelectPin, LOW);
-
-	SPI.transfer((addr<<1)&0x7E);	
-	SPI.transfer(val);
-	
-	digitalWrite(chipSelectPin, HIGH);
+    digitalWrite(chipSelectPin, LOW);
+    SPI.transfer((addr << 1) & 0x7E);  // 地址格式:0XXXXXX0
+    SPI.transfer(val);
+    digitalWrite(chipSelectPin, HIGH);
 }
 
-
+// 读MFRC522寄存器
 uchar Read_MFRC522(uchar addr)
 {
-	uchar val;
-
-	digitalWrite(chipSelectPin, LOW);
-
-	//address format: 1XXXXXX0
-	SPI.transfer(((addr<<1)&0x7E) | 0x80);	
-	val =SPI.transfer(0x00);
-	
-
-	digitalWrite(chipSelectPin, HIGH);
-	
-	return val;	
+    uchar val;
+    digitalWrite(chipSelectPin, LOW);
+    SPI.transfer(((addr << 1) & 0x7E) | 0x80);  // 地址格式:1XXXXXX0
+    val = SPI.transfer(0x00);
+    digitalWrite(chipSelectPin, HIGH);
+    return val;
 }
 
-
-void SetBitMask(uchar reg, uchar mask)  
+// 设置寄存器位掩码
+void SetBitMask(uchar reg, uchar mask)
 {
     uchar tmp;
     tmp = Read_MFRC522(reg);
-    Write_MFRC522(reg, tmp | mask);  // set bit mask
+    Write_MFRC522(reg, tmp | mask);  // 设置位掩码
 }
 
-
-
-void ClearBitMask(uchar reg, uchar mask)  
+// 清除寄存器位掩码
+void ClearBitMask(uchar reg, uchar mask)
 {
     uchar tmp;
     tmp = Read_MFRC522(reg);
-    Write_MFRC522(reg, tmp & (~mask));  // clear bit mask
-} 
+    Write_MFRC522(reg, tmp & (~mask));  // 清除位掩码
+}
 
+// 开启天线
 void AntennaOn(void)
 {
-	uchar temp;
-
-	temp = Read_MFRC522(TxControlReg);
-	if (!(temp & 0x03))
-	{
-		SetBitMask(TxControlReg, 0x03);
-	}
+    uchar temp;
+    temp = Read_MFRC522(TxControlReg);
+    if (!(temp & 0x03))
+    {
+        SetBitMask(TxControlReg, 0x03);
+    }
 }
 
+// 关闭天线
 void AntennaOff(void)
 {
-	ClearBitMask(TxControlReg, 0x03);
+    ClearBitMask(TxControlReg, 0x03);
 }
 
+// 复位MFRC522
 void MFRC522_Reset(void)
 {
-
     Write_MFRC522(CommandReg, PCD_RESETPHASE);
 }
 
+// 初始化MFRC522
 void MFRC522_Init(void)
 {
-	digitalWrite(NRSTPD,HIGH);
-
-	MFRC522_Reset();
-	 	
-	//Timer: TPrescaler*TreloadVal/6.78MHz = 24ms
-    Write_MFRC522(TModeReg, 0x8D);		//Tauto=1; f(Timer) = 6.78MHz/TPreScaler
-    Write_MFRC522(TPrescalerReg, 0x3E);	//TModeReg[3..0] + TPrescalerReg
+    digitalWrite(NRSTPD, HIGH);
+    MFRC522_Reset();
+    
+    // 定时器配置: TPrescaler*TreloadVal/6.78MHz = 24ms
+    Write_MFRC522(TModeReg, 0x8D);       // Tauto=1; f(Timer) = 6.78MHz/TPreScaler
+    Write_MFRC522(TPrescalerReg, 0x3E);  // TModeReg[3..0] + TPrescalerReg
     Write_MFRC522(TReloadRegL, 30);           
     Write_MFRC522(TReloadRegH, 0);
-	
-	Write_MFRC522(TxAutoReg, 0x40);		//100%ASK
-	Write_MFRC522(ModeReg, 0x3D);		//CRC original value 0x6363	???
-
-	AntennaOn();		// open antenna 
+    
+    Write_MFRC522(TxAutoReg, 0x40);  // 100%ASK调制
+    Write_MFRC522(ModeReg, 0x3D);    // CRC初始值0x6363
+    
+    AntennaOn();  // 开启天线
 }
+
+// 寻卡
 uchar MFRC522_Request(uchar reqMode, uchar *TagType)
 {
-	uchar status;  
+    uchar status;  
+    uint backBits;  // 接收到的数据位数
+    
+    Write_MFRC522(BitFramingReg, 0x07);  // TxLastBists = BitFramingReg[2..0]
+    
+    TagType[0] = reqMode;
+    status = MFRC522_ToCard(PCD_TRANSCEIVE, TagType, 1, TagType, &backBits);
 
-	uint backBits;			// bits of data received
-	Write_MFRC522(BitFramingReg, 0x07);		//TxLastBists = BitFramingReg[2..0]	???
-	
-	TagType[0] = reqMode;
-	status = MFRC522_ToCard(PCD_TRANSCEIVE, TagType, 1, TagType, &backBits);
-
-	if ((status != MI_OK) || (backBits != 0x10))
-	{    
-		status = MI_ERR;
-	}
+    if ((status != MI_OK) || (backBits != 0x10))
+    {    
+        status = MI_ERR;
+    }
    
-	return status;
+    return status;
 }
 
+// MFRC522与卡片通信
 uchar MFRC522_ToCard(uchar command, uchar *sendData, uchar sendLen, uchar *backData, uint *backLen)
 {
     uchar status = MI_ERR;
-uchar irqEn = 0x00;
-
+    uchar irqEn = 0x00;
     uchar waitIRq = 0x00;
     uchar lastBits;
     uchar n;
@@ -2798,242 +2871,229 @@ uchar irqEn = 0x00;
 
     switch (command)
     {
-        case PCD_AUTHENT:		// card key authentication 
-		{
-			irqEn = 0x12;
-			waitIRq = 0x10;
-			break;
-		}
-		case PCD_TRANSCEIVE:	// send data in FIFO
-		{
-			irqEn = 0x77;
-			waitIRq = 0x30;
-			break;
-		}
-		default:
-			break;
+        case PCD_AUTHENT:  // 卡片密钥验证
+        {
+            irqEn = 0x12;
+            waitIRq = 0x10;
+            break;
+        }
+        case PCD_TRANSCEIVE:  // 发送FIFO中的数据
+        {
+            irqEn = 0x77;
+            waitIRq = 0x30;
+            break;
+        }
+        default:
+            break;
     }
    
-    Write_MFRC522(CommIEnReg, irqEn|0x80);	// permission for interrupt request
-    ClearBitMask(CommIrqReg, 0x80);			// clear all bits of the interrupt request 
-    SetBitMask(FIFOLevelReg, 0x80);			//FlushBuffer=1, FIFO initialize
+    Write_MFRC522(CommIEnReg, irqEn | 0x80);  // 允许中断请求
+    ClearBitMask(CommIrqReg, 0x80);           // 清除所有中断请求位
+    SetBitMask(FIFOLevelReg, 0x80);           // FlushBuffer=1, FIFO初始化
     
-	Write_MFRC522(CommandReg, PCD_IDLE);	//NO action; clear current command	???
-
-	// write data into FIFO
-    for (i=0; i<sendLen; i++)
+    Write_MFRC522(CommandReg, PCD_IDLE);  // 无动作，清除当前命令
+    
+    // 将数据写入FIFO
+    for (i = 0; i < sendLen; i++)
     {   
-		Write_MFRC522(FIFODataReg, sendData[i]);    
-	}
+        Write_MFRC522(FIFODataReg, sendData[i]);    
+    }
 
-	// execute command 
-	Write_MFRC522(CommandReg, command);
+    // 执行命令
+    Write_MFRC522(CommandReg, command);
     if (command == PCD_TRANSCEIVE)
     {    
-		SetBitMask(BitFramingReg, 0x80);		//StartSend=1,transmission of data starts  
-	}   
-
+        SetBitMask(BitFramingReg, 0x80);  // StartSend=1,开始传输数据
+    }   
     
-	// wait for the completion of data transmission
-	i = 2000;	// adjust i according to clock frequency, max wait time for M1 card operation 25ms	???
+    // 等待数据传输完成
+    i = 2000;  // 根据时钟频率调整i，M1卡操作最大等待时间25ms
     do 
     {
-		//CommIrqReg[7..0]
-		//Set1 TxIRq RxIRq IdleIRq HiAlerIRq LoAlertIRq ErrIRq TimerIRq
+        // CommIrqReg[7..0]
+        // Set1 TxIRq RxIRq IdleIRq HiAlerIRq LoAlertIRq ErrIRq TimerIRq
         n = Read_MFRC522(CommIrqReg);
         i--;
     }
-    while ((i!=0) && !(n&0x01) && !(n&waitIRq));
+    while ((i != 0) && !(n & 0x01) && !(n & waitIRq));
 
-    ClearBitMask(BitFramingReg, 0x80);			//StartSend=0
-	
+    ClearBitMask(BitFramingReg, 0x80);  // StartSend=0
+    
     if (i != 0)
     {    
-        if(!(Read_MFRC522(ErrorReg) & 0x1B))	//BufferOvfl Collerr CRCErr ProtecolErr
+        if (!(Read_MFRC522(ErrorReg) & 0x1B))  // BufferOvfl Collerr CRCErr ProtecolErr
         {
             status = MI_OK;
             if (n & irqEn & 0x01)
             {   
-				status = MI_NOTAGERR;			//??   
-
-			}
+                status = MI_NOTAGERR;  // 无卡片错误
+            }
 
             if (command == PCD_TRANSCEIVE)
             {
-               	n = Read_MFRC522(FIFOLevelReg);
-              	lastBits = Read_MFRC522(ControlReg) & 0x07;
+                n = Read_MFRC522(FIFOLevelReg);
+                lastBits = Read_MFRC522(ControlReg) & 0x07;
                 if (lastBits)
                 {   
-					*backLen = (n-1)*8 + lastBits;   
-				}
+                    *backLen = (n - 1) * 8 + lastBits;   
+                }
                 else
                 {   
-					*backLen = n*8;   
-				}
+                    *backLen = n * 8;   
+                }
 
                 if (n == 0)
                 {   
-					n = 1;    
-				}
+                    n = 1;    
+                }
                 if (n > MAX_LEN)
-
                 {   
-					n = MAX_LEN;   
-				}
-				
-				// read the data received in FIFO
-                for (i=0; i<n; i++)
+                    n = MAX_LEN;   
+                }
+                
+                // 读取FIFO中接收到的数据
+                for (i = 0; i < n; i++)
                 {   
-					backData[i] = Read_MFRC522(FIFODataReg);    
-				}
+                    backData[i] = Read_MFRC522(FIFODataReg);    
+                }
             }
         }
         else
         {   
-			status = MI_ERR;  
-		}
-        
+            status = MI_ERR;  
+        }
     }
-	
-    //SetBitMask(ControlReg,0x80);           //timer stops
-    //Write_MFRC522(CommandReg, PCD_IDLE); 
-
-
+    
     return status;
 }
 
+// 防冲突，获取卡片序列号
 uchar MFRC522_Anticoll(uchar *serNum)
 {
     uchar status;
     uchar i;
-	uchar serNumCheck=0;
+    uchar serNumCheck = 0;
     uint unLen;
     
-	Write_MFRC522(BitFramingReg, 0x00);		//TxLastBists = BitFramingReg[2..0]
+    Write_MFRC522(BitFramingReg, 0x00);  // TxLastBists = BitFramingReg[2..0]
  
     serNum[0] = PICC_ANTICOLL;
     serNum[1] = 0x20;
     status = MFRC522_ToCard(PCD_TRANSCEIVE, serNum, 2, serNum, &unLen);
 
     if (status == MI_OK)
-	{
-		// verify card sequence number
-		for (i=0; i<4; i++)
-		{   
-
-		 	serNumCheck ^= serNum[i];
-		}
-		if (serNumCheck != serNum[i])
-		{   
-			status = MI_ERR;    
-		}
+    {
+        // 验证卡片序列号
+        for (i = 0; i < 4; i++)
+        {   
+            serNumCheck ^= serNum[i];
+        }
+        if (serNumCheck != serNum[i])
+        {   
+            status = MI_ERR;    
+        }
     }
 
-    //SetBitMask(CollReg, 0x80);		//ValuesAfterColl=1
-
     return status;
-} 
+}
 
+// 计算CRC
 void CalulateCRC(uchar *pIndata, uchar len, uchar *pOutData)
 {
     uchar i, n;
 
-    ClearBitMask(DivIrqReg, 0x04);			//CRCIrq = 0
-    SetBitMask(FIFOLevelReg, 0x80);			// clear FIFO pointer
-    //Write_MFRC522(CommandReg, PCD_IDLE);
-
-	// write data into FIFO	
-    for (i=0; i<len; i++)
+    ClearBitMask(DivIrqReg, 0x04);  // CRCIrq = 0
+    SetBitMask(FIFOLevelReg, 0x80); // 清除FIFO指针
+    
+    // 将数据写入FIFO
+    for (i = 0; i < len; i++)
     {   
-		Write_MFRC522(FIFODataReg, *(pIndata+i));   
-	}
+        Write_MFRC522(FIFODataReg, *(pIndata + i));   
+    }
     Write_MFRC522(CommandReg, PCD_CALCCRC);
 
-	// wait for completion of CRC calculation 
+    // 等待CRC计算完成
     i = 0xFF;
     do 
     {
         n = Read_MFRC522(DivIrqReg);
         i--;
     }
-    while ((i!=0) && !(n&0x04));			//CRCIrq = 1
+    while ((i != 0) && !(n & 0x04));  // CRCIrq = 1
 
-	// read result from CRC calculation
+    // 从CRC计算结果寄存器读取结果
     pOutData[0] = Read_MFRC522(CRCResultRegL);
     pOutData[1] = Read_MFRC522(CRCResultRegM);
 }
 
-
+// 选卡
 uchar MFRC522_SelectTag(uchar *serNum)
 {
     uchar i;
-	uchar status;
-	uchar size;
+    uchar status;
+    uchar size;
     uint recvBits;
     uchar buffer[9]; 
 
-	//ClearBitMask(Status2Reg, 0x08);			//MFCrypto1On=0
-
     buffer[0] = PICC_SElECTTAG;
     buffer[1] = 0x70;
-    for (i=0; i<5; i++)
+    for (i = 0; i < 5; i++)
     {
-    	buffer[i+2] = *(serNum+i);
+        buffer[i + 2] = *(serNum + i);
     }
-	CalulateCRC(buffer, 7, &buffer[7]);		//??
+    CalulateCRC(buffer, 7, &buffer[7]);  // 计算CRC
     status = MFRC522_ToCard(PCD_TRANSCEIVE, buffer, 9, buffer, &recvBits);
     
-if ((status == MI_OK) && (recvBits == 0x18))
-
+    if ((status == MI_OK) && (recvBits == 0x18))
     {   
-		size = buffer[0]; 
-	}
+        size = buffer[0]; 
+    }
     else
     {   
-		size = 0;    
-	}
+        size = 0;    
+    }
 
     return size;
 }
 
+// 验证卡片密钥
 uchar MFRC522_Auth(uchar authMode, uchar BlockAddr, uchar *Sectorkey, uchar *serNum)
 {
     uchar status;
     uint recvBits;
     uchar i;
-	uchar buff[12]; 
+    uchar buff[12]; 
 
-	// Verification instructions + block address + sector password + card sequence number
+    // 验证指令 + 块地址 + 扇区密码 + 卡片序列号
     buff[0] = authMode;
     buff[1] = BlockAddr;
-for (i=0; i<6; i++)
-
+    for (i = 0; i < 6; i++)
     {    
-		buff[i+2] = *(Sectorkey+i);   
-	}
-    for (i=0; i<4; i++)
+        buff[i + 2] = *(Sectorkey + i);   
+    }
+    for (i = 0; i < 4; i++)
     {    
-		buff[i+8] = *(serNum+i);   
-	}
+        buff[i + 8] = *(serNum + i);   
+    }
     status = MFRC522_ToCard(PCD_AUTHENT, buff, 12, buff, &recvBits);
 
     if ((status != MI_OK) || (!(Read_MFRC522(Status2Reg) & 0x08)))
     {   
-		status = MI_ERR;   
-	}
+        status = MI_ERR;   
+    }
     
     return status;
 }
 
+// 读块
 uchar MFRC522_Read(uchar blockAddr, uchar *recvData)
 {
-
     uchar status;
     uint unLen;
 
     recvData[0] = PICC_READ;
     recvData[1] = blockAddr;
-    CalulateCRC(recvData,2, &recvData[2]);
+    CalulateCRC(recvData, 2, &recvData[2]);
     status = MFRC522_ToCard(PCD_TRANSCEIVE, recvData, 4, recvData, &unLen);
 
     if ((status != MI_OK) || (unLen != 0x90))
@@ -3044,14 +3104,14 @@ uchar MFRC522_Read(uchar blockAddr, uchar *recvData)
     return status;
 }
 
+// 写块
 uchar MFRC522_Write(uchar blockAddr, uchar *writeData)
 {
     uchar status;
     uint recvBits;
     uchar i;
-	uchar buff[18]; 
+    uchar buff[18]; 
     
-
     buff[0] = PICC_WRITE;
     buff[1] = blockAddr;
     CalulateCRC(buff, 2, &buff[2]);
@@ -3059,30 +3119,32 @@ uchar MFRC522_Write(uchar blockAddr, uchar *writeData)
 
     if ((status != MI_OK) || (recvBits != 4) || ((buff[0] & 0x0F) != 0x0A))
     {   
-		status = MI_ERR;   
-	}
+        status = MI_ERR;   
+    }
         
     if (status == MI_OK)
     {
-        for (i=0; i<16; i++)		// write 16Byte data into FIFO
+        // 将16字节数据写入FIFO
+        for (i = 0; i < 16; i++)
         {    
-        	buff[i] = *(writeData+i);   
+            buff[i] = *(writeData + i);   
         }
         CalulateCRC(buff, 16, &buff[16]);
         status = MFRC522_ToCard(PCD_TRANSCEIVE, buff, 18, buff, &recvBits);
         
-		if ((status != MI_OK) || (recvBits != 4) || ((buff[0] & 0x0F) != 0x0A))
+        if ((status != MI_OK) || (recvBits != 4) || ((buff[0] & 0x0F) != 0x0A))
         {   
-			status = MI_ERR;   
-		}
+            status = MI_ERR;   
+        }
     }
     
     return status;
 }
 
+// 命令卡片进入休眠状态
 void MFRC522_Halt(void)
 {
-	uchar status;
+    uchar status;
     uint unLen;
     uchar buff[4]; 
 
@@ -3090,7 +3152,7 @@ void MFRC522_Halt(void)
     buff[1] = 0;
     CalulateCRC(buff, 2, &buff[2]);
  
-    status = MFRC522_ToCard(PCD_TRANSCEIVE, buff, 4, buff,&unLen);
+    status = MFRC522_ToCard(PCD_TRANSCEIVE, buff, 4, buff, &unLen);
 }
 ```
 
@@ -3111,17 +3173,17 @@ void MFRC522_Halt(void)
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-麦克风声音传感器*1
+麦克风声音传感器\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -3177,17 +3239,17 @@ void loop()
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-5V 单路继电器模块*1
+5V 单路继电器模块\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -3239,15 +3301,15 @@ delay(2000); //延时2S
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-1602 I2C 蓝屏*1
+1602 I2C 蓝屏\*1
 
-DHT11温湿度传感器*1
+DHT11温湿度传感器\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -3267,41 +3329,66 @@ DHT11温湿度传感器*1
 
 ```
 #include <dht11.h>
-// include the library code:
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27,16,2);
+#include <Wire.h>         // I2C通信库
+#include <LiquidCrystal_I2C.h>  // I2C LCD库
+
+// 初始化LCD对象，参数：I2C地址(0x27)，列数(16)，行数(2)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// 创建DHT11传感器对象
 dht11 DHT;
+
+// 定义DHT11数据引脚
 #define DHT11_PIN 10   
-void setup(){
-  lcd.init();                      // initialize the lcd 
-  // Print a message to the LCD.
-  lcd.init();
-  lcd.backlight();
-  lcd.setCursor(0,0);
-  lcd.print("Humidity (%):");
-  lcd.setCursor(0,1);
-  lcd.print("Temp (C):");
+
+void setup()
+{
+    // 初始化LCD
+    lcd.init();                      
+    
+    // 开启LCD背光
+    lcd.backlight();
+    
+    // 设置光标位置(列,行)并打印静态文本
+    lcd.setCursor(0, 0);
+    lcd.print("Humidity (%):");
+    
+    lcd.setCursor(0, 1);
+    lcd.print("Temp (C):");
 }  
-void loop(){
-  int chk;
-  chk = DHT.read(DHT11_PIN);    // READ DATA
-  switch (chk){
-    case DHTLIB_OK:  
+
+void loop()
+{
+    int chk;
+    
+    // 读取DHT11传感器数据
+    chk = DHT.read(DHT11_PIN);    
+    
+    // 检查传感器读取状态
+    switch (chk)
+    {
+        case DHTLIB_OK:  // 读取成功
                 break;
-case DHTLIB_ERROR_CHECKSUM: 
+                
+        case DHTLIB_ERROR_CHECKSUM:  // 校验和错误
                 break;
-    case DHTLIB_ERROR_TIMEOUT: 
+                
+        case DHTLIB_ERROR_TIMEOUT:  // 超时错误
                 break;
-    default: 
+                
+        default:  // 其他错误
                 break;
-  }
- // DISPLAT DATA
-  lcd.setCursor(13,0);
-  lcd.print(DHT.humidity);
-  lcd.setCursor(9,1);
-  lcd.print(DHT.temperature);
-  delay(1000);
+    }
+    
+    // 在LCD上显示数据
+    lcd.setCursor(13, 0);  // 湿度值显示位置
+    lcd.print(DHT.humidity);  // 显示湿度值
+    
+    lcd.setCursor(9, 1);  // 温度值显示位置
+    lcd.print(DHT.temperature);  // 显示温度值
+    
+    // 延时1秒
+    delay(1000);
 }
 ```
 
@@ -3319,19 +3406,19 @@ case DHTLIB_ERROR_CHECKSUM:
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-1602 I2C 蓝屏*1
+1602 I2C 蓝屏\*1
 
-MQ-2烟雾传感器*1
+MQ-2烟雾传感器\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -3350,64 +3437,92 @@ MQ-2烟雾传感器*1
 测试代码
 
 ```
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27,16,2);
-int gas_din=12;
-int gas_ain=A0;
-int led=9;
-int ad_value;
+#include <Wire.h>               // I2C通信库
+#include <LiquidCrystal_I2C.h>  // I2C LCD库
+
+// 初始化LCD对象，参数：I2C地址(0x27)，列数(16)，行数(2)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// 引脚定义
+int gas_din = 12;  // 气体传感器数字输出引脚
+int gas_ain = A0;  // 气体传感器模拟输出引脚
+int led = 9;       // LED指示灯引脚
+int ad_value;      // 存储模拟读取值
+
 void setup()
 {
-  pinMode(led,OUTPUT);
-  pinMode(gas_din,INPUT);
-  pinMode(gas_ain,INPUT);
-  lcd.init();                      // initialize the lcd 
-  lcd.init();
-  // Print a message to the LCD.
-  lcd.backlight();
+    // 设置引脚模式
+    pinMode(led, OUTPUT);
+    pinMode(gas_din, INPUT);
+    pinMode(gas_ain, INPUT);
+    
+    // 初始化LCD
+    lcd.init();
+    lcd.init();  // 重复初始化(原代码保留)
+    
+    // 开启LCD背光
+    lcd.backlight();
 }
+
 void loop()
-{ 
-  ad_value=analogRead(gas_ain);
-  if(digitalRead(gas_din)==LOW)
-  { 
-    digitalWrite(led,HIGH);
-    lcd.setCursor(0,0);
-    lcd.print("Gas leakage!    ");
-    lcd.setCursor(0,1);
-    lcd.print("Value:");
-     if(ad_value<10)
-  {
-  lcd.setCursor(6,1);
-  lcd.print(ad_value);
-  lcd.setCursor(7,1);
-  lcd.print("         ");
-  }
-  if((ad_value>=10)&&(ad_value<100))
-  {
-  lcd.setCursor(6,1);
-  lcd.print(ad_value);
-  lcd.setCursor(8,1);
-  lcd.print("        ");
-  }
-  if( ad_value>=100)
-  {
-  lcd.setCursor(6,1);
-  lcd.print(ad_value);
-  lcd.setCursor(9,1);
-  lcd.print("       ");
-  }
-  }
-  else
-  {
-   digitalWrite(led,LOW);
-   lcd.setCursor(0,0);
-   lcd.print("Gas not leak!   ");
-   lcd.setCursor(0,1);
-   lcd.print("Gas not leak!  ");
-  }
-  delay(500);
+{
+    // 读取气体传感器模拟值
+    ad_value = analogRead(gas_ain);
+    
+    // 检测气体泄漏(数字引脚低电平触发)
+    if (digitalRead(gas_din) == LOW)
+    {
+        // 检测到气体泄漏
+        digitalWrite(led, HIGH);  // 点亮LED
+        
+        // 第一行显示警告信息
+        lcd.setCursor(0, 0);
+        lcd.print("Gas leakage!    ");
+        
+        // 第二行显示数值
+        lcd.setCursor(0, 1);
+        lcd.print("Value:");
+        
+        // 根据数值位数调整显示位置，保持显示整洁
+        if (ad_value < 10)
+        {
+            lcd.setCursor(6, 1);
+            lcd.print(ad_value);
+            lcd.setCursor(7, 1);
+            lcd.print("         ");  // 清除多余字符
+        }
+        
+        if ((ad_value >= 10) && (ad_value < 100))
+        {
+            lcd.setCursor(6, 1);
+            lcd.print(ad_value);
+            lcd.setCursor(8, 1);
+            lcd.print("        ");  // 清除多余字符
+        }
+        
+        if (ad_value >= 100)
+        {
+            lcd.setCursor(6, 1);
+            lcd.print(ad_value);
+            lcd.setCursor(9, 1);
+            lcd.print("       ");  // 清除多余字符
+        }
+    }
+    else
+    {
+        // 未检测到气体泄漏
+        digitalWrite(led, LOW);  // 关闭LED
+        
+        // 显示安全信息
+        lcd.setCursor(0, 0);
+        lcd.print("Gas not leak!   ");
+        
+        lcd.setCursor(0, 1);
+        lcd.print("Gas not leak!  ");
+    }
+    
+    // 延时500ms
+    delay(500);
 }
 ```
 
@@ -3428,19 +3543,19 @@ RGB色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)�
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-摇杆模块*1
+摇杆模块\*1
 
-可调电位器*1
+可调电位器\*1
 
-1602 I2C 蓝屏*1
+1602 I2C 蓝屏\*1
 
-keyes 插件RGB模块*1
+keyes 插件RGB模块\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -3459,119 +3574,141 @@ keyes 插件RGB模块*1
 测试代码
 
 ```
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27,16,2);
-int redpin = 11; //select the pin for the red LED
-int greenpin =10;// select the pin for the green LED
-int bluepin =9; // select the pin for the blue LED
-int Z =8;
-int val;
-int value1;
-int value2;
-int value3;
+#include <Wire.h>               // I2C通信库
+#include <LiquidCrystal_I2C.h>  // I2C LCD库
 
-void setup() {
-  pinMode(redpin, OUTPUT);
-  pinMode(bluepin, OUTPUT);
-  pinMode(greenpin, OUTPUT);
-pinMode(Z, INPUT);
-  lcd.init();  // initialize the lcd 
-  // Print a message to the LCD.
-  lcd.init();
-  lcd.backlight();
-  lcd.setCursor(0,0);
-  lcd.print("R;");
-  lcd.setCursor(8,0);
-  lcd.print("G;");
-  lcd.setCursor(0,1);
-  lcd.print("B;");
+// 初始化LCD对象，参数：I2C地址(0x27)，16列2行
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// 引脚定义
+int redpin = 11;   // 红色LED引脚
+int greenpin = 10; // 绿色LED引脚
+int bluepin = 9;   // 蓝色LED引脚
+int Z = 8;         // 数字输入引脚
+
+// 变量声明
+int val;          // 存储数字输入值
+int value1;       // 红色通道值
+int value2;       // 绿色通道值
+int value3;       // 蓝色通道值
+
+void setup() 
+{
+    // 设置引脚模式
+    pinMode(redpin, OUTPUT);
+    pinMode(bluepin, OUTPUT);
+    pinMode(greenpin, OUTPUT);
+    pinMode(Z, INPUT);
+    
+    // 初始化LCD
+    lcd.init();
+    lcd.init();  // 重复初始化(保留原代码)
+    lcd.backlight();
+    
+    // 显示静态文本
+    lcd.setCursor(0, 0);
+    lcd.print("R;");
+    lcd.setCursor(8, 0);
+    lcd.print("G;");
+    lcd.setCursor(0, 1);
+    lcd.print("B;");
 }
 
 void loop() 
 {
-val=digitalRead(Z);
-if(val==HIGH)
-{
-analogWrite(redpin, 255);
-  lcd.setCursor(2,0);
-  lcd.print("255");
-analogWrite(greenpin, 255);
-  lcd.setCursor(10,0);
-  lcd.print("255");
-analogWrite(bluepin, 255);
-  lcd.setCursor(2,1);
-  lcd.print("255");
-}
-else
-{
-value1=map( analogRead(0),0,1023,0,255);
-value2=map( analogRead(1),0,1023,0,255);
-value3=map( analogRead(2),0,1023,0,255);
-analogWrite(redpin, value1);
-if(value1<10)
-{
-  lcd.setCursor(2,0);
-  lcd.print(value1);
-  lcd.setCursor(3,0);
-  lcd.print("   ");
-}
-if((value1>=10)&&(value1<100))
-{
-  lcd.setCursor(2,0);
-  lcd.print(value1);
-  lcd.setCursor(4,0);
-  lcd.print("  ");
-}
-if(value1>=100)
-{
-  lcd.setCursor(2,0);
-  lcd.print(value1);
-}
-delay(100); 
-analogWrite(greenpin, value2);
-if(value2<10)
-{
-  lcd.setCursor(10,0);
-  lcd.print(value2);
-  lcd.setCursor(11,0);
-  lcd.print("   ");
-}
-if((value2>=10)&&(value2<100))
-{
-  lcd.setCursor(10,0);
-  lcd.print(value2);
-  lcd.setCursor(12,0);
-  lcd.print("  ");
-}
-if(value2>=100)
-{
-  lcd.setCursor(10,0);
-  lcd.print(value2);
-}
-delay(100); 
-analogWrite(bluepin, value3);
-if(value3<10)
-{
-  lcd.setCursor(2,1);
-  lcd.print(value3);
-  lcd.setCursor(3,1);
-  lcd.print("   ");
-}
-if((value3>=10)&&(value3<100))
-{
-  lcd.setCursor(2,1);
-  lcd.print(value3);
-  lcd.setCursor(4,1);
-  lcd.print("  ");
-}
-if(value3>=100)
-{
-  lcd.setCursor(2,1);
-  lcd.print(value3);
-}
-delay(100); 
-}
+    val = digitalRead(Z);  // 读取数字输入
+    
+    if (val == HIGH)
+    {
+        // 测试模式：所有LED全亮
+        analogWrite(redpin, 255);
+        lcd.setCursor(2, 0);
+        lcd.print("255");
+        
+        analogWrite(greenpin, 255);
+        lcd.setCursor(10, 0);
+        lcd.print("255");
+        
+        analogWrite(bluepin, 255);
+        lcd.setCursor(2, 1);
+        lcd.print("255");
+    }
+    else
+    {
+        // 正常模式：从模拟输入读取RGB值
+        value1 = map(analogRead(0), 0, 1023, 0, 255);  // 红色通道
+        value2 = map(analogRead(1), 0, 1023, 0, 255);  // 绿色通道
+        value3 = map(analogRead(2), 0, 1023, 0, 255);  // 蓝色通道
+        
+        // 处理红色通道
+        analogWrite(redpin, value1);
+        if (value1 < 10)
+        {
+            lcd.setCursor(2, 0);
+            lcd.print(value1);
+            lcd.setCursor(3, 0);
+            lcd.print("   ");  // 清除多余字符
+        }
+        if ((value1 >= 10) && (value1 < 100))
+        {
+            lcd.setCursor(2, 0);
+            lcd.print(value1);
+            lcd.setCursor(4, 0);
+            lcd.print("  ");  // 清除多余字符
+        }
+        if (value1 >= 100)
+        {
+            lcd.setCursor(2, 0);
+            lcd.print(value1);
+        }
+        delay(100);
+        
+        // 处理绿色通道
+        analogWrite(greenpin, value2);
+        if (value2 < 10)
+        {
+            lcd.setCursor(10, 0);
+            lcd.print(value2);
+            lcd.setCursor(11, 0);
+            lcd.print("   ");  // 清除多余字符
+        }
+        if ((value2 >= 10) && (value2 < 100))
+        {
+            lcd.setCursor(10, 0);
+            lcd.print(value2);
+            lcd.setCursor(12, 0);
+            lcd.print("  ");  // 清除多余字符
+        }
+        if (value2 >= 100)
+        {
+            lcd.setCursor(10, 0);
+            lcd.print(value2);
+        }
+        delay(100);
+        
+        // 处理蓝色通道
+        analogWrite(bluepin, value3);
+        if (value3 < 10)
+        {
+            lcd.setCursor(2, 1);
+            lcd.print(value3);
+            lcd.setCursor(3, 1);
+            lcd.print("   ");  // 清除多余字符
+        }
+        if ((value3 >= 10) && (value3 < 100))
+        {
+            lcd.setCursor(2, 1);
+            lcd.print(value3);
+            lcd.setCursor(4, 1);
+            lcd.print("  ");  // 清除多余字符
+        }
+        if (value3 >= 100)
+        {
+            lcd.setCursor(2, 1);
+            lcd.print(value3);
+        }
+        delay(100);
+    }
 }
 ```
 
@@ -3596,11 +3733,11 @@ keyes TMD27713
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-keyes TMD27713 距离传感器*1
+keyes TMD27713 距离传感器\*1
 
 杜邦线若干
 
@@ -3622,144 +3759,159 @@ keyes TMD27713 距离传感器*1
 #include <Wire.h>
 #include <APDS9930.h>
 
-// Pins
-#define APDS9930_INT    2  // Needs to be an interrupt pin
-#define LED_PIN         13 // LED for showing interrupt
+// 引脚定义
+#define APDS9930_INT    2  // 需要使用中断引脚
+#define LED_PIN         13 // 用于显示中断的LED引脚
 
-// Constants
-#define PROX_INT_HIGH   600 // Proximity level for interrupt
-#define PROX_INT_LOW    0  // No far interrupt
+// 常量定义
+#define PROX_INT_HIGH   600 // 触发中断的接近阈值
+#define PROX_INT_LOW    0   // 无远距离中断
 
-// Global variables
+// 全局变量
 APDS9930 apds = APDS9930();
-float ambient_light = 0; // can also be an unsigned long
-uint16_t ch0 = 0;
-uint16_t ch1 = 1;
-uint16_t proximity_data = 0;
-volatile bool isr_flag = false;
+float ambient_light = 0;   // 环境光强度，也可定义为unsigned long
+uint16_t ch0 = 0;          // 通道0光强度
+uint16_t ch1 = 1;          // 通道1光强度
+uint16_t proximity_data = 0; // 接近数据
+volatile bool isr_flag = false; // 中断标志位
 
-void setup() {
+void setup() 
+{
+    // 设置LED为输出模式
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(APDS9930_INT, INPUT);
 
-  // Set LED as output
-  pinMode(LED_PIN, OUTPUT);
-  pinMode(APDS9930_INT, INPUT);
+    // 初始化串口
+    Serial.begin(9600);
+    Serial.println();
+    Serial.println(F("------------------------------"));
+    Serial.println(F("APDS-9930 - ProximityInterrupt"));
+    Serial.println(F("------------------------------"));
 
-  // Initialize Serial port
-  Serial.begin(9600);
-  Serial.println();
-  Serial.println(F("------------------------------"));
-  Serial.println(F("APDS-9930 - ProximityInterrupt"));
-  Serial.println(F("------------------------------"));
+    // 初始化中断服务例程
+    attachInterrupt(digitalPinToInterrupt(APDS9930_INT), interruptRoutine, FALLING);
 
-  // Initialize interrupt service routine
-  attachInterrupt(digitalPinToInterrupt(APDS9930_INT), interruptRoutine, FALLING);
+    // 初始化APDS-9930（配置I2C和初始值）
+    if (apds.init()) 
+    {
+        Serial.println(F("APDS-9930 initialization complete"));
+    }
+    else 
+    {
+        Serial.println(F("Something went wrong during APDS-9930 init!"));
+    }
 
-  // Initialize APDS-9930 (configure I2C and initial values)
-  if (apds.init()) {
-    Serial.println(F("APDS-9930 initialization complete"));
-  }
-  else {
-    Serial.println(F("Something went wrong during APDS-9930 init!"));
-  }
+    // 调整接近传感器增益
+    if (!apds.setProximityGain(PGAIN_2X)) 
+    {
+        Serial.println(F("Something went wrong trying to set PGAIN"));
+    }
 
-  // Adjust the Proximity sensor gain
-  if (!apds.setProximityGain(PGAIN_2X)) {
-    Serial.println(F("Something went wrong trying to set PGAIN"));
-  }
+    // 设置接近中断阈值
+    if (!apds.setProximityIntLowThreshold(PROX_INT_LOW)) 
+    {
+        Serial.println(F("Error writing low threshold"));
+    }
+    if (!apds.setProximityIntHighThreshold(PROX_INT_HIGH)) 
+    {
+        Serial.println(F("Error writing high threshold"));
+    }
 
-  // Set proximity interrupt thresholds
-  if (!apds.setProximityIntLowThreshold(PROX_INT_LOW)) {
-    Serial.println(F("Error writing low threshold"));
-  }
-  if (!apds.setProximityIntHighThreshold(PROX_INT_HIGH)) {
-    Serial.println(F("Error writing high threshold"));
-  }
+    // 启动APDS-9930接近传感器（带中断）
+    if (apds.enableProximitySensor(true)) 
+    {
+        Serial.println(F("Proximity sensor is now running"));
+    }
+    else 
+    {
+        Serial.println(F("Something went wrong during sensor init!"));
+    }
 
-  // Start running the APDS-9930 proximity sensor (interrupts)
-  if (apds.enableProximitySensor(true)) {
-    Serial.println(F("Proximity sensor is now running"));
-  }
-  else {
-    Serial.println(F("Something went wrong during sensor init!"));
-  }
-
-  // Start running the APDS-9930 light sensor (no interrupts)
-  if (apds.enableLightSensor(false)) {
-    Serial.println(F("Light sensor is now running"));
-  }
-  else {
-    Serial.println(F("Something went wrong during light sensor init!"));
-  }
+    // 启动APDS-9930光传感器（不带中断）
+    if (apds.enableLightSensor(false)) 
+    {
+        Serial.println(F("Light sensor is now running"));
+    }
+    else 
+    {
+        Serial.println(F("Something went wrong during light sensor init!"));
+    }
 
 #ifdef DUMP_REGS
-  /* Register dump */
-  uint8_t reg;
-  uint8_t val;
+    // 寄存器转储
+    uint8_t reg;
+    uint8_t val;
 
-  for (reg = 0x00; reg <= 0x19; reg++) {
-    if ((reg != 0x10) && \
-      (reg != 0x11))
+    for (reg = 0x00; reg <= 0x19; reg++) 
     {
-      apds.wireReadDataByte(reg, val);
-      Serial.print(reg, HEX);
-      Serial.print(": 0x");
-      Serial.println(val, HEX);
+        if ((reg != 0x10) && (reg != 0x11))
+        {
+            apds.wireReadDataByte(reg, val);
+            Serial.print(reg, HEX);
+            Serial.print(": 0x");
+            Serial.println(val, HEX);
+        }
     }
-  }
-  apds.wireReadDataByte(0x1E, val);
-  Serial.print(0x1E, HEX);
-  Serial.print(": 0x");
-  Serial.println(val, HEX);
+    apds.wireReadDataByte(0x1E, val);
+    Serial.print(0x1E, HEX);
+    Serial.print(": 0x");
+    Serial.println(val, HEX);
 #endif
-
 }
 
-void loop() {
+void loop() 
+{
+    // 如果中断发生，打印接近等级
+    if (isr_flag) 
+    {
+        // 读取接近等级并打印
+        if (!apds.readProximity(proximity_data)) 
+        {
+            Serial.println("Error reading proximity value");
+        }
+        else 
+        {
+            Serial.print("Proximity detected! Level: ");
+            Serial.print(proximity_data);
+            Serial.print("   ");
+        }
+        
+        apds.readAmbientLightLux(ambient_light);
+        
+        // 读取光强度（环境光、通道0、通道1）
+        if (!apds.readAmbientLightLux(ambient_light) ||
+            !apds.readCh0Light(ch0) ||
+            !apds.readCh1Light(ch1)) 
+        {
+            Serial.println(F("Error reading light values"));
+        }
+        else 
+        {
+            Serial.print(F("Ambient: "));
+            Serial.print(ambient_light);
+            Serial.print(F("  Ch0: "));
+            Serial.print(ch0);
+            Serial.print(F("  Ch1: "));
+            Serial.println(ch1);
+        }
 
-  // If interrupt occurs, print out the proximity level
-  if (isr_flag) {
+        // LED亮起0.3秒
+        digitalWrite(LED_PIN, HIGH);
+        delay(300);
+        digitalWrite(LED_PIN, LOW);
 
-    // Read proximity level and print it out
-    if (!apds.readProximity(proximity_data)) {
-      Serial.println("Error reading proximity value");
+        // 重置标志位并清除APDS-9930中断（重要！）
+        isr_flag = false;
+        if (!apds.clearProximityInt()) 
+        {
+            Serial.println("Error clearing interrupt");
+        }
     }
-    else {
-      Serial.print("Proximity detected! Level: ");
-      Serial.print(proximity_data);
-      Serial.print("   ");
-    }
-    apds.readAmbientLightLux(ambient_light);
-    // Read the light levels (ambient, red, green, blue)
-    if (!apds.readAmbientLightLux(ambient_light) ||
-      !apds.readCh0Light(ch0) ||
-      !apds.readCh1Light(ch1)) {
-      Serial.println(F("Error reading light values"));
-    }
-    else {
-      Serial.print(F("Ambient: "));
-      Serial.print(ambient_light);
-      Serial.print(F("  Ch0: "));
-      Serial.print(ch0);
-      Serial.print(F("  Ch1: "));
-      Serial.println(ch1);
-    }
-
-    // Turn on LED for a half a second
-    digitalWrite(LED_PIN, HIGH);
-    delay(300);
-    digitalWrite(LED_PIN, LOW);
-
-    // Reset flag and clear APDS-9930 interrupt (IMPORTANT!)
-    isr_flag = false;
-    if (!apds.clearProximityInt()) {
-      Serial.println("Error clearing interrupt");
-    }
-
-  }
 }
 
-void interruptRoutine() {
-  isr_flag = true;
+void interruptRoutine() 
+{
+    isr_flag = true;
 }
 ```
 
@@ -3785,11 +3937,11 @@ MMA8452Q 是一款具有
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-keyes MMA8452Q 三轴数字加速度传感器*1
+keyes MMA8452Q 三轴数字加速度传感器\*1
 
 杜邦线若干
 
@@ -3806,127 +3958,96 @@ keyes MMA8452Q 三轴数字加速度传感器*1
 测试代码
 
 ```
-#include <Wire.h> // Must include Wire library for I2C
-#include <SparkFun_MMA8452Q.h> // Includes the SFE_MMA8452Q library
+#include <Wire.h>          // 必须包含Wire库以支持I2C通信
+#include <SparkFun_MMA8452Q.h> // 包含SFE_MMA8452Q加速度计库
 
-// Begin using the library by creating an instance of the MMA8452Q
-//  class. We'll call it "accel". That's what we'll reference from
-//  here on out.
+// 创建MMA8452Q类的实例，命名为"accel"，后续将通过此实例操作传感器
 MMA8452Q accel;
 
-// The setup function simply starts serial and initializes the
-//  accelerometer.
-void setup()
+// 初始化函数，启动串口并初始化加速度计
+void setup() 
 {
-  Serial.begin(9600);
-  Serial.println("MMA8452Q Test Code!");
+    Serial.begin(9600);    // 初始化串口通信，波特率9600
+    Serial.println("MMA8452Q Test Code!"); // 打印测试信息
   
-  // Choose your adventure! There are a few options when it comes
-  // to initializing the MMA8452Q:
-  //  1. Default init. This will set the accelerometer up
-  //     with a full-scale range of +/-2g, and an output data rate
-  //     of 800 Hz (fastest).
-  accel.init();
-  //  2. Initialize with FULL-SCALE setting. You can set the scale
-  //     using either SCALE_2G, SCALE_4G, or SCALE_8G as the value.
-  //     That'll set the scale to +/-2g, 4g, or 8g respectively.
-  //accel.init(SCALE_4G); // Uncomment this out if you'd like
-  //  3. Initialize with FULL-SCALE and DATA RATE setting. If you
-  //     want control over how fast your accelerometer produces
-  //     data use one of the following options in the second param:
-  //     ODR_800, ODR_400, ODR_200, ODR_100, ODR_50, ODR_12,
-  //     ODR_6, or ODR_1. 
-  //     Sets to 800, 400, 200, 100, 50, 12.5, 6.25, or 1.56 Hz.
-  //accel.init(SCALE_8G, ODR_6);
+    // 初始化加速度计有以下几种选项：
+    // 1. 默认初始化：设置量程为±2g，输出数据速率为800Hz（最快）
+    accel.init();
+    // 2. 自定义量程初始化：可选SCALE_2G、SCALE_4G或SCALE_8G
+    //accel.init(SCALE_4G); // 取消注释以使用±4g量程
+    // 3. 自定义量程和数据速率初始化：第二参数可选ODR_800、ODR_400等
+    //accel.init(SCALE_8G, ODR_6); // 取消注释以使用±8g量程和6.25Hz速率
 }
 
-// The loop function will simply check for new data from the
-//  accelerometer and print it out if it's available.
-void loop()
+// 主循环函数，检测加速度计数据并打印
+void loop() 
 {
-  // Use the accel.available() function to wait for new data
-  //  from the accelerometer.
-  if (accel.available())
-  {
-    // First, use accel.read() to read the new variables:
-    accel.read();
+    // 使用accel.available()等待新数据
+    if (accel.available()) 
+    {
+        // 读取新数据
+        accel.read();
     
-    // accel.read() will update two sets of variables. 
-    // * int's x, y, and z will store the signed 12-bit values 
-    //   read out of the accelerometer.
-    // * floats cx, cy, and cz will store the calculated 
-    //   acceleration from those 12-bit values. These variables 
-    //   are in units of g's.
-    // Check the two function declarations below for an example
-    // of how to use these variables.
-    printCalculatedAccels();
-    //printAccels(); // Uncomment to print digital readings
+        // accel.read()会更新两组变量：
+        // * x/y/z：存储12位有符号原始数据
+        // * cx/cy/cz：存储计算后的加速度值（单位：g）
+        printCalculatedAccels(); // 打印计算后的加速度值
+        //printAccels();         // 取消注释以打印原始数字读数
     
-    // The library also supports the portrait/landscape detection
-    //  of the MMA8452Q. Check out this function declaration for
-    //  an example of how to use that.
-    printOrientation();
+        // 打印传感器方向状态（横屏/竖屏检测）
+        printOrientation();
     
-    Serial.println(); // Print new line every time.
-  }
+        Serial.println();       // 每次循环后换行
+    }
 }
 
-// The function demonstrates how to use the accel.x, accel.y and
-//  accel.z variables.
-// Before using these variables you must call the accel.read()
-//  function!
-void printAccels()
+// 打印原始12位数字读数（x/y/z变量）
+// 注意：调用前必须先执行accel.read()
+void printAccels() 
 {
-  Serial.print(accel.x, 3);
-  Serial.print("\t");
-  Serial.print(accel.y, 3);
-  Serial.print("\t");
-  Serial.print(accel.z, 3);
-  Serial.print("\t");
+    Serial.print(accel.x, 3);  // 打印X轴原始值，保留3位小数
+    Serial.print("\t");        // 制表符分隔
+    Serial.print(accel.y, 3);  // 打印Y轴原始值
+    Serial.print("\t");
+    Serial.print(accel.z, 3);  // 打印Z轴原始值
+    Serial.print("\t");
 }
 
-// This function demonstrates how to use the accel.cx, accel.cy,
-//  and accel.cz variables.
-// Before using these variables you must call the accel.read()
-//  function!
-void printCalculatedAccels()
+// 打印计算后的加速度值（cx/cy/cz变量，单位g）
+// 注意：调用前必须先执行accel.read()
+void printCalculatedAccels() 
 { 
-  Serial.print(accel.cx, 3);
-  Serial.print("\t");
-  Serial.print(accel.cy, 3);
-  Serial.print("\t");
-  Serial.print(accel.cz, 3);
-  Serial.print("\t");
+    Serial.print(accel.cx, 3); // 打印X轴加速度值
+    Serial.print("\t");
+    Serial.print(accel.cy, 3); // 打印Y轴加速度值
+    Serial.print("\t");
+    Serial.print(accel.cz, 3); // 打印Z轴加速度值
+    Serial.print("\t");
 }
 
-// This function demonstrates how to use the accel.readPL()
-// function, which reads the portrait/landscape status of the
-// sensor.
-void printOrientation()
+// 打印传感器方向状态（横屏/竖屏检测）
+void printOrientation() 
 {
-  // accel.readPL() will return a byte containing information
-  // about the orientation of the sensor. It will be either
-  // PORTRAIT_U, PORTRAIT_D, LANDSCAPE_R, LANDSCAPE_L, or
-  // LOCKOUT.
-  byte pl = accel.readPL();
-  switch (pl)
-  {
-  case PORTRAIT_U:
-    Serial.print("Portrait Up");
-    break;
-  case PORTRAIT_D:
-    Serial.print("Portrait Down");
-    break;
-  case LANDSCAPE_R:
-    Serial.print("Landscape Right");
-    break;
-  case LANDSCAPE_L:
-    Serial.print("Landscape Left");
-    break;
-  case LOCKOUT:
-    Serial.print("Flat");
-    break;
-  }
+    // accel.readPL()返回方向状态字节
+    byte pl = accel.readPL();
+    switch (pl) 
+    {
+    case PORTRAIT_U:          // 纵向-正向
+        Serial.print("Portrait Up");
+        break;
+    case PORTRAIT_D:          // 纵向-倒置
+        Serial.print("Portrait Down");
+        break;
+    case LANDSCAPE_R:         // 横向-右侧
+        Serial.print("Landscape Right");
+        break;
+    case LANDSCAPE_L:         // 横向-左侧
+        Serial.print("Landscape Left");
+        break;
+    case LOCKOUT:             // 水平放置
+        Serial.print("Flat");
+        break;
+    }
 }
 ```
 
@@ -3948,19 +4069,19 @@ Keyes GUVA-S12SD 3528
 
 实验器材
 
-开发板*1
+开发板\*1
 
-USB线*1
+USB线\*1
 
-LED*1
+LED\*1
 
-220Ω 电阻*1
+220Ω 电阻\*1
 
-1602 I2C 蓝屏*1
+1602 I2C 蓝屏\*1
 
-GUVA-S12SD 3528 太阳光紫外线传感器*1
+GUVA-S12SD 3528 太阳光紫外线传感器\*1
 
-面包板*1
+面包板\*1
 
 面包板连接线若干
 
@@ -3979,57 +4100,69 @@ GUVA-S12SD 3528 太阳光紫外线传感器*1
 测试代码
 
 ```
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27,16,2);
-int led=9;
-void setup()
+#include <Wire.h>                   // 包含I2C通信库
+#include <LiquidCrystal_I2C.h>      // 包含I2C LCD库
+
+// 初始化LCD对象，参数：I2C地址(0x27)，列数(16)，行数(2)
+LiquidCrystal_I2C lcd(0x27, 16, 2); 
+
+int led = 9;                       // LED连接引脚9
+
+void setup() 
 {
-  pinMode(led,OUTPUT);
-  lcd.init();                      // initialize the lcd 
-  lcd.init();
-  // Print a message to the LCD.
-  lcd.backlight();
-  lcd.setCursor(0,0);
-  lcd.print("Ultra-Violet ");
-  lcd.setCursor(0,1);
-  lcd.print("Detection:");
+    pinMode(led, OUTPUT);           // 设置LED引脚为输出模式
+  
+    lcd.init();                     // 初始化LCD
+    lcd.init();                     // 重复初始化确保可靠性
+  
+    lcd.backlight();                // 开启LCD背光
+  
+    // 在LCD上显示初始信息
+    lcd.setCursor(0, 0);            // 设置光标位置(列,行)
+    lcd.print("Ultra-Violet ");     // 打印第一行文本
+  
+    lcd.setCursor(0, 1);            // 移动到第二行
+    lcd.print("Detection:");        // 打印第二行文本
 }
-void loop()
+
+void loop() 
 { 
- int sensorValue = analogRead(A0);
-  if(sensorValue<10)
-  {
-  lcd.setCursor(10,1);
-  lcd.print(sensorValue);
-  lcd.setCursor(11,1);
-  lcd.print("     ");
-  digitalWrite(led,LOW);
-  }
-  if((sensorValue>=10)&&(sensorValue<100))
-  {
-  lcd.setCursor(10,1);
-  lcd.print(sensorValue);
-  lcd.setCursor(12,1);
-  lcd.print("    ");
-  digitalWrite(led,HIGH);
-  }
-  if( sensorValue>=100)
-  {
-  lcd.setCursor(10,1);
-  lcd.print(sensorValue);
-  lcd.setCursor(13,1);
-  lcd.print("   ");
-  digitalWrite(led,HIGH);
-  }
-  delay(500);
+    int sensorValue = analogRead(A0); // 读取A0引脚的模拟值（紫外线传感器值）
+  
+    // 根据传感器值范围进行不同处理
+    if (sensorValue < 10) 
+    {
+        lcd.setCursor(10, 1);        // 设置数值显示位置
+        lcd.print(sensorValue);      // 打印传感器值
+        lcd.setCursor(11, 1);        // 清除多余字符的位置
+        lcd.print("     ");          // 用空格清除多余字符
+        digitalWrite(led, LOW);     // 关闭LED
+    }
+  
+    if ((sensorValue >= 10) && (sensorValue < 100)) 
+    {
+        lcd.setCursor(10, 1);        // 设置数值显示位置
+        lcd.print(sensorValue);      // 打印传感器值
+        lcd.setCursor(12, 1);        // 清除多余字符的位置
+        lcd.print("    ");           // 用空格清除多余字符
+        digitalWrite(led, HIGH);    // 点亮LED
+    }
+  
+    if (sensorValue >= 100) 
+    {
+        lcd.setCursor(10, 1);        // 设置数值显示位置
+        lcd.print(sensorValue);      // 打印传感器值
+        lcd.setCursor(13, 1);        // 清除多余字符的位置
+        lcd.print("   ");            // 用空格清除多余字符
+        digitalWrite(led, HIGH);     // 点亮LED
+    }
+  
+    delay(500);                     // 延迟500毫秒
 }
 ```
 
 
 
-测试结果
 
-接上线，烧录程序，上电后，在1602 LCD上显示代表紫外线含量的数值，当数值小于10时，LED熄灭；当数值大于等于10时，LED亮起。
 
 
